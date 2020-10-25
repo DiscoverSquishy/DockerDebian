@@ -1,5 +1,4 @@
 FROM debian:buster-slim
-FROM node:12
 
 LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
@@ -15,6 +14,9 @@ RUN apt update \
 ## install dependencies
 RUN apt install -y gcc g++ libgcc1 lib32gcc1 gdb libc6 git wget curl tar zip unzip binutils xz-utils liblzo2-2 cabextract iproute2 net-tools netcat telnet libatomic1 libsdl1.2debian libsdl2-2.0-0 \
     libfontconfig libicu63 icu-devtools libunwind8 libssl-dev sqlite3 libsqlite3-dev libmariadbclient-dev libduktape203 locales ffmpeg gnupg2 apt-transport-https software-properties-common ca-certificates tzdata
+
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN apt-get install -y nodejs
 
 RUN npm install -g pm2
 RUN npm install -g typescript
