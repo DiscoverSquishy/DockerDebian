@@ -25,8 +25,13 @@ RUN npm install -g ts-node
 RUN pm2 install typescript
 
 ## configure locale
-RUN update-locale lang=en_US.UTF-8 \
- && dpkg-reconfigure --fontend noninteractive locales
+RUN echo "Europe/Oslo" > /etc/timezone && \
+    dpkg-reconfigure -f noninteractive tzdata && \
+    sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    sed -i -e 's/# nb_NO.UTF-8 UTF-8/nb_NO.UTF-8 UTF-8/' /etc/locale.gen && \
+    echo 'LANG="nb_NO.UTF-8"'>/etc/default/locale && \
+    dpkg-reconfigure --frontend=noninteractive locales && \
+    update-locale LANG=nb_NO.UTF-8
 
 COPY ./entrypoint.sh /entrypoint.sh
 CMD ["/bin/bash", "/entrypoint.sh"]
