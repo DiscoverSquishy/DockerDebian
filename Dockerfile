@@ -1,6 +1,7 @@
 FROM debian:buster-slim
+FROM node:12
 
-LABEL author="Michael Parker" maintainer="parker@pterodactyl.io"
+LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -23,7 +24,7 @@ RUN pm2 install typescript
 
 ## configure locale
 RUN update-locale lang=en_US.UTF-8 \
- && dpkg-reconfigure --frontend noninteractive locales
+ && dpkg-reconfigure --fontend noninteractive locales
 
 COPY ./entrypoint.sh /entrypoint.sh
 CMD ["/bin/bash", "/entrypoint.sh"]
