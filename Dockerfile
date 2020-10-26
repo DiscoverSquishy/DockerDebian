@@ -1,13 +1,26 @@
-FROM        alpine:latest
+FROM alpine:latest
 
-LABEL       author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
+LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
-RUN         apk add --no-cache --update ca-certificates \
-            && adduser -D -h /home/container container
+RUN apk add --no-cache --update ca-certificates \
+    && adduser -D -h /home/container container
 
-USER        container
-ENV         USER=container HOME=/home/container
-WORKDIR     /home/container
+# package update & upgrade
+RUN apk update
+RUN apk upgrade
 
-COPY        ./entrypoint.sh /entrypoint.sh
-CMD         ["/bin/ash", "/entrypoint.sh"]
+# timezone setting
+RUN apk add tzdata
+RUN cp /usr/share/zoneinfo/America/New York /etc/localtime
+RUN echo "America/New York" >  /etc/timezone
+RUN date
+
+# package cleanup
+RUN apk cache clean
+
+USER container
+ENV USER=container HOME=/home/container
+WORKDIR /home/container
+
+COPY ./entrypoint.sh /entrypoint.sh
+CMD ["/bin/ash", "/entrypoint.sh"]
