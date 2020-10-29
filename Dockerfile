@@ -2,12 +2,12 @@ FROM alpine:3.12.1
 
 LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
-RUN apk add --update ca-certificates \
+RUN apk add --no-cache --update ca-certificates \
     && adduser -D -h /home/container container
 
 # package update & upgrade
-RUN apk update
-RUN apk upgrade
+RUN apk update --no-cache
+RUN apk upgrade --no-cache
 
 # timezone setting
 # RUN apk add tzdata
