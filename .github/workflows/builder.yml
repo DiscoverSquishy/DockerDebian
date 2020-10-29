@@ -25,5 +25,5 @@ jobs:
       - name: Submitting Image for Scan
         uses: phonito/phonito-scanner-action@master
         with:
-          image: myapp:${{ steps.vars.outputs.docker_tag }}
+          image: myapp:${{ Building-Validity.steps.vars.outputs.docker_tag }}
           phonito-token: '${{ secrets.SECURITY_API }}'
