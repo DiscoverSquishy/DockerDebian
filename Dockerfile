@@ -11,9 +11,9 @@ RUN apk upgrade --no-cache
 
 # Optimized manner of provocating a layer
 RUN apk add --no-cache tzdata \
-cp /usr/share/zoneinfo/America/New_York /etc/localtime \
-echo "America/New_York" >  /etc/timezone \
-date
+    cp /usr/share/zoneinfo/America/New_York /etc/localtime \
+    echo "America/New_York" >  /etc/timezone \
+    date
 
 # package cleanup
 RUN rm -rf /var/cache/apk/*
