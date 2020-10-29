@@ -10,7 +10,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Lint Runner
-      uses: luke142367/Docker-Lint-Action@master
+      uses: luke142367/Docker-Lint-Action@1.1.1
       with:
         target: Dockerfile
       env:
