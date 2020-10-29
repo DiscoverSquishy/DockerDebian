@@ -11,6 +11,8 @@ jobs:
 
       - name: Lint Runner
         uses: github/super-linter@v3.13.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   Building-Validity:
     runs-on: self-hosted
