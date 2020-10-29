@@ -12,7 +12,7 @@ RUN apk upgrade
 # timezone setting
 RUN apk add tzdata
 RUN cp /usr/share/zoneinfo/America/New York /etc/localtime
-RUN echo "America/New_York" >  /etc/timezone
+RUN echo "Europe/London" >  /etc/timezone
 RUN date
 
 # package cleanup
