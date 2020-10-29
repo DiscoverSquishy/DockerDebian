@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.12.1
 
 LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
@@ -10,10 +10,15 @@ RUN apk update
 RUN apk upgrade
 
 # timezone setting
-RUN apk add tzdata
-RUN cp /usr/share/zoneinfo/America/New_York /etc/localtime
-RUN echo "America/New_York" >  /etc/timezone
-RUN date
+# RUN apk add tzdata
+# RUN cp /usr/share/zoneinfo/America/New_York /etc/localtime
+# RUN echo "America/New_York" >  /etc/timezone
+# RUN date
+
+RUN apk add --no-cache tzdata \
+    cp /usr/share/zoneinfo/America/New_York /etc/localtime \
+    echo "America/New_York" >  /etc/timezone \
+    date
 
 # package cleanup
 RUN rm -rf /var/cache/apk/*
