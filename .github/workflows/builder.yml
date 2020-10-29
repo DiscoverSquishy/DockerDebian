@@ -43,3 +43,15 @@ jobs:
         with:
           image: myapp:${{ steps.vars.outputs.docker_tag }}
           phonito-token: '${{ secrets.SECURITY_API }}'
+          fail-level: LOW
+
+
+  Layer-Two-Scan:
+    runs-on: self-hosted
+    needs: Vulnerability-Checking
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Layer Two Scanner
+        uses: brpaz/hadolint-action@master
