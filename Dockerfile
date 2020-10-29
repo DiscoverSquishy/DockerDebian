@@ -9,17 +9,11 @@ RUN apk add --no-cache --update ca-certificates \
 RUN apk update --no-cache
 RUN apk upgrade --no-cache
 
-# timezone setting
-# RUN apk add tzdata
-# RUN cp /usr/share/zoneinfo/America/New_York /etc/localtime
-# RUN echo "America/New_York" >  /etc/timezone
-# RUN date
-
 # Optimized manner of provocating a layer
-RUN apk add --no-cache tzdata
-RUN cp /usr/share/zoneinfo/America/New_York /etc/localtime
-RUN echo "America/New_York" >  /etc/timezone \
-RUN date
+RUN apk add --no-cache tzdata \
+cp /usr/share/zoneinfo/America/New_York /etc/localtime \
+echo "America/New_York" >  /etc/timezone \
+date
 
 # package cleanup
 RUN rm -rf /var/cache/apk/*
