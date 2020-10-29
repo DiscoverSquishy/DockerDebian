@@ -16,7 +16,7 @@ RUN echo "America/New_York" >  /etc/timezone
 RUN date
 
 # package cleanup
-RUN apk cache clean
+RUN rm -f /var/cache/apk/*
 
 USER container
 ENV USER=container HOME=/home/container
