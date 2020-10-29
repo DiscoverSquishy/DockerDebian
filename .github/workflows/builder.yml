@@ -6,11 +6,11 @@ jobs:
   Lint-Test:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Lint Runner
-      uses: brpaz/hadolint-action@master
+      - name: Lint Runner
+        uses: github/super-linter@v3.13.2
 
   Building-Validity:
     runs-on: ubuntu-latest
