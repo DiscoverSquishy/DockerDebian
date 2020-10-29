@@ -1,10 +1,10 @@
 name: Build Docker Image
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   Linter:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -13,7 +13,7 @@ jobs:
         uses: github/super-linter@v3.13.2
 
   Building-Validity:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: Linter
     steps:
       - uses: actions/checkout@v2
@@ -21,7 +21,7 @@ jobs:
         run: docker build . --file Dockerfile --tag docker-images:$(date +%s)
 
   Vulnerability-Checking:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: Building-Validity
 
     steps:
