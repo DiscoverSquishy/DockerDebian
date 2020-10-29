@@ -1,6 +1,11 @@
 name: Build Docker Image
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+      - RunnerAlpine
+      - TSPM2
 
 jobs:
   LevelOne-Linter:
