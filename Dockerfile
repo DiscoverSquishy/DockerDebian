@@ -1,24 +1,20 @@
-FROM alpine:3.12.1
+FROM adoptopenjdk:11-jdk-openj9
 
 LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
-RUN apk add --no-cache --update ca-certificates \
-    && adduser -D -h /home/container container
-
-# package update & upgrade
-RUN apk update --no-cache
-RUN apk upgrade --no-cache
-
-# Optimized manner of provocating a layer
-RUN apk add --no-cache tzdata && cp /usr/share/zoneinfo/America/New_York /etc/localtime
-RUN echo "America/New_York" > /etc/timezone && date
-
-# package cleanup
-RUN rm -rf /var/cache/apk/*
+RUN apt-get update -y --no-install-recommends \
+&& apt-get install -y curl ca-certificates openssl git tar sqlite3 fontconfig tzdata iproute2 --no-install-recommends \
+&& useradd -d /home/container -m container \
+&& apt-get clean && rm -rf /var/lib/apt/lists/*
 
 USER container
 ENV USER=container HOME=/home/container
+
+USER container
+ENV USER=container HOME=/home/container
+
 WORKDIR /home/container
 
 COPY ./entrypoint.sh /entrypoint.sh
-CMD ["/bin/ash", "/entrypoint.sh"]
+
+CMD ["/bin/bash", "/entrypoint.sh"]
