@@ -39,23 +39,23 @@ jobs:
       - name: Docker Image Building Validity
         run: docker build . --file Dockerfile --tag docker-images:$(date +%s)
 
-  Vulnerability-Checking:
-    runs-on: ubuntu-latest
-    needs: Building-Validity
+  # Vulnerability-Checking:
+  #   runs-on: ubuntu-latest
+  #   needs: Building-Validity
 
-    steps:
-      - uses: actions/checkout@v2
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      - name: Setting Image Tag
-        id: vars
-        run: echo ::set-output name=docker_tag::$(echo ${GITHUB_REF} | cut -d'/' -f3)-${GITHUB_SHA}
+  #     - name: Setting Image Tag
+  #       id: vars
+  #       run: echo ::set-output name=docker_tag::$(echo ${GITHUB_REF} | cut -d'/' -f3)-${GITHUB_SHA}
 
-      - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag myapp:${{ steps.vars.outputs.docker_tag }}
+  #     - name: Build the Docker image
+  #       run: docker build . --file Dockerfile --tag myapp:${{ steps.vars.outputs.docker_tag }}
 
-      - name: Running Vulnerability Test
-        uses: phonito/phonito-scanner-action@master
-        with:
-          image: myapp:${{ steps.vars.outputs.docker_tag }}
-          phonito-token: '${{ secrets.SECURITY_API }}'
-          fail-level: LOW
+  #     - name: Running Vulnerability Test
+  #       uses: phonito/phonito-scanner-action@master
+  #       with:
+  #         image: myapp:${{ steps.vars.outputs.docker_tag }}
+  #         phonito-token: '${{ secrets.SECURITY_API }}'
+  #         fail-level: LOW
