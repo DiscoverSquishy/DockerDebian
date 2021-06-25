@@ -4,7 +4,7 @@ LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
 RUN apk add --no-cache \
     ca-certificates \
-    && apk remove musl \
+    && apk del musl \
     && adduser -D -h /home/container container
 
 # package update & upgrade
