@@ -2,7 +2,9 @@ FROM alpine:3.14.0
 
 LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
-RUN apk add --no-cache --update ca-certificates \
+RUN apk add --no-cache \
+    ca-certificates \
+    musl=1.2.2_pre2-r0 \
     && adduser -D -h /home/container container
 
 # package update & upgrade
@@ -11,7 +13,6 @@ RUN apk upgrade --no-cache
 
 # Optimized manner of provocating a layer
 RUN apk add --no-cache tzdata openssl && cp /usr/share/zoneinfo/America/New_York /etc/localtime
-RUN apk add 'musl<1.2.2-r3' --no-cache
 RUN echo "America/New_York" > /etc/timezone && date
 
 # package cleanup
