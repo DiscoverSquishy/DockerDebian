@@ -11,6 +11,7 @@ RUN apk upgrade --no-cache
 
 # Optimized manner of provocating a layer
 RUN apk add --no-cache tzdata openssl && cp /usr/share/zoneinfo/America/New_York /etc/localtime
+RUN apk add 'musl<1.2.2-r3'
 RUN echo "America/New_York" > /etc/timezone && date
 
 # package cleanup
