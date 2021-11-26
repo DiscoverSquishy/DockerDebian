@@ -27,10 +27,12 @@ jobs:
       - name: Build all of the container images
         working-directory: ./java
         run: |
-          docker build . --file Dockerfile --tag java8-adoptopenjdk
+            docker build . --file Dockerfile --tag java8-adoptopenjdk
       - name: Push the images
-          docker tag "java8-adoptopenjdk"
-          docker push java8-adoptopenjdk
-          name="java8-adoptopenjdk-${{ github.sha }}"
-          docker tag "java8-adoptopenjdk"
-          docker push java8-adoptopenjdk
+        if: github.ref == 'refs/heads/main'
+        run: |
+            docker tag "java8-adoptopenjdk"
+            docker push java8-adoptopenjdk
+            name="java8-adoptopenjdk-${{ github.sha }}"
+            docker tag "java8-adoptopenjdk"
+            docker push java8-adoptopenjdk
