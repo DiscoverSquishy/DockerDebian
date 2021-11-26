@@ -20,19 +20,18 @@ jobs:
     runs-on: ubuntu-latest
     name: Build & Push
     steps:
-      - uses: actions/checkout@v2
-      - name: Log into the container repository
-        run: |
-          ${{ secrets.DOCKER_LOGIN }}
-      - name: Build all of the container images
-        working-directory: ./java
-        run: |
-            docker build . --file Dockerfile --tag java8-adoptopenjdk
-      - name: Push the images
-        if: github.ref == 'refs/heads/main'
-        run: |
-            docker tag "java8-adoptopenjdk"
-            docker push java8-adoptopenjdk
-            name="java8-adoptopenjdk-${{ github.sha }}"
-            docker tag "java8-adoptopenjdk"
-            docker push java8-adoptopenjdk
+      - name: Login to Quay Registry
+        uses: docker/login-action@v1
+        with:
+          registry: quay.io
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      - name: Build and Push
+        uses: docker/build-push-action@v2
+        with:
+          context: ./java/
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: |
+            discoversquishy/java8:java8
