@@ -7,11 +7,8 @@ RUN apt-get update -y --no-install-recommends \
 && useradd -d /home/container -m container \
 && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-USER container
-ENV USER=container HOME=/home/container
-
-USER container
-ENV USER=container HOME=/home/container
+USER java-container
+ENV USER=java-container HOME=/home/container
 
 WORKDIR /home/container
 
