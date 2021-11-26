@@ -32,8 +32,8 @@ jobs:
       - name: Push the images
         if: github.ref == 'refs/heads/main'
         run: |
-            docker tag "java8-adoptopenjdk" "$name"
+            docker tag "java8-adoptopenjdk" "java8-adoptopenjdk"
             docker push "$name"
-            name="$name-${{ github.sha }}"
-            docker tag "java8-adoptopenjdk" "$name"
+            name="java8-adoptopenjdk-${{ github.sha }}"
+            docker tag "java8-adoptopenjdk" "java8-adoptopenjdk"
             docker push "$name"
