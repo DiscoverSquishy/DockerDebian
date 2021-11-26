@@ -32,7 +32,6 @@ jobs:
       - name: Push the images
         if: github.ref == 'refs/heads/main'
         run: |
-            name="$CONTAINER_REPO:discoversquishy/dockerimages"
             docker tag "java8-adoptopenjdk" "$name"
             docker push "$name"
             name="$name-${{ github.sha }}"
