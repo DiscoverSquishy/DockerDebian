@@ -32,7 +32,6 @@ jobs:
         with:
           working-directory: ./java/
           context: .
-          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             discoversquishy/java8:java8
