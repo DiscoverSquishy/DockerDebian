@@ -23,8 +23,8 @@ jobs:
       - name: Buildah Action
         uses: redhat-actions/buildah-build@v2
         with:
-          image: java-adoptopenjdk8-hotspot
-          tags: java:$(date +%s)
+          image: "java-adoptopenjdk8-hotspot"
+          tags: "latest ${{ github.sha }}"
           dockerfiles: |
             ./java/Dockerfile
 
