@@ -33,7 +33,7 @@ jobs:
         uses: redhat-actions/push-to-registry@v2
         with:
           tags: quay.io/repository/discoversquishy/dockerimages:java quay.io/repository/discoversquishy/dockerimages:java
-          registry: quay.io/repository/discoversquishy/dockerimages
+          registry: quay.io/repository/discoversquishy
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
