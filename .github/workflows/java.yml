@@ -30,6 +30,7 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v2
         with:
+          registry: quay.io
           working-directory: ./java/
           push: true
           tags: |
