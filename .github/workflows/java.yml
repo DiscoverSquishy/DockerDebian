@@ -23,7 +23,7 @@ jobs:
       - name: Buildah Action
         uses: redhat-actions/buildah-build@v2
         with:
-          image: "java-adoptopenjdk8-hotspot"
+          image: "java8-adoptopenjdk-hotspot"
           tags: "latest ${{ github.sha }}"
           dockerfiles: |
             ./java/Dockerfile
@@ -32,8 +32,8 @@ jobs:
         id: push-to-quay
         uses: redhat-actions/push-to-registry@v2
         with:
-          image: "java-adoptopenjdk8-hotspot"
-          tags: "java-adoptopenjdk8-hotspot"
+          image: "java8-adoptopenjdk-hotspot"
+          tags: ${{ steps.build-image.outputs.tags }}
           registry: quay.io/repository/discoversquishy/dockerimages
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
