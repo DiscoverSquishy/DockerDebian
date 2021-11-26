@@ -1,38 +1,38 @@
-name: Build Docker Image
+# name: Build Docker Image
 
-on: push
+# on: push
 
-jobs:
-  LevelOne-Linter:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+# jobs:
+#   LevelOne-Linter:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
 
-      - name: Lint Runner
-        uses: luke142367/Docker-Lint-Action@v1.0.0
-        with:
-          target: Dockerfile
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       - name: Lint Runner
+#         uses: luke142367/Docker-Lint-Action@v1.0.0
+#         with:
+#           target: Dockerfile
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  LevelTwo-Linter:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v2
+#   LevelTwo-Linter:
+#       runs-on: ubuntu-latest
+#       steps:
+#         - name: Checkout
+#           uses: actions/checkout@v2
 
-        - name: Linting All Codebase
-          uses: github/super-linter@v3
-          env:
-            VALIDATE_BASH: true
-            VALIDATE_DOCKERFILE: true
-            VALIDATE_ENV: true
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         - name: Linting All Codebase
+#           uses: github/super-linter@v3
+#           env:
+#             VALIDATE_BASH: true
+#             VALIDATE_DOCKERFILE: true
+#             VALIDATE_ENV: true
+#             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  # Building-Validity:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Docker Image Building Validity
-  #       run: docker build . --file Dockerfile --tag docker-images:$(date +%s)
+#   # Building-Validity:
+#   #   runs-on: ubuntu-latest
+#   #   steps:
+#   #     - uses: actions/checkout@v2
+#   #     - name: Docker Image Building Validity
+#   #       run: docker build . --file Dockerfile --tag docker-images:$(date +%s)
