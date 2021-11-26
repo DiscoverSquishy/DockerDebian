@@ -32,7 +32,6 @@ jobs:
 
   Building-Validity:
     runs-on: ubuntu-latest
-    needs: LevelTwo-Linter
     steps:
       - uses: actions/checkout@v2
       - name: Docker Image Building Validity
