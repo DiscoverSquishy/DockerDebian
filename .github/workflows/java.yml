@@ -21,12 +21,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Docker Image Building Validity
-        run: docker build ./java/Dockerfile --tag java:$(date +%s)
+        run: docker build ./java/ --tag java:$(date +%s)
 
       - name: Publish
         uses: docker/build-push-action@v1
         with:
-          path: ./java
+          path: ./java/Dockerfile
           registry: quay.io
           repository: discoversquishy/dockerimages
           username: ${{ secrets.REGISTRY_USERNAME }}
