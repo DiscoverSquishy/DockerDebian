@@ -32,8 +32,8 @@ jobs:
         id: push-to-quay
         uses: redhat-actions/push-to-registry@v2
         with:
-          image: ${{ steps.build-image.outputs.image }}
-          tags: ${{ steps.build-image.outputs.tags }}
+          image: "java-adoptopenjdk8-hotspot"
+          tags: "java-adoptopenjdk8-hotspot"
           registry: quay.io/repository/discoversquishy/dockerimages
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
