@@ -30,9 +30,9 @@ jobs:
             VALIDATE_ENV: true
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  Building-Validity:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Docker Image Building Validity
-        run: docker build . --file Dockerfile --tag docker-images:$(date +%s)
+  # Building-Validity:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Docker Image Building Validity
+  #       run: docker build . --file Dockerfile --tag docker-images:$(date +%s)
