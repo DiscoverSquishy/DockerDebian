@@ -20,22 +20,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Buildah Action
-        uses: redhat-actions/buildah-build@v2
-        with:
-          image: "java8-adoptopenjdk-hotspot"
-          tags: "latest ${{ github.sha }}"
-          dockerfiles: |
-            ./java/Dockerfile
+      - name: Docker Image Building Validity
+        run: docker build ./java/Dockerfile --tag java:$(date +%s)
 
-      - name: Push To quay.io
-        id: push-to-quay
-        uses: redhat-actions/push-to-registry@v2
+      - name: Publish
+        uses: docker/build-push-action@v1
         with:
-          tags: quay.io/repository/discoversquishy/dockerimages:java quay.io/repository/discoversquishy/dockerimages:java
-          registry: quay.io/repository/discoversquishy
+          path: ./java/Dockerfile
+          registry: quay.io
+          repository: discoversquishy/dockerimages
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
-
-      - name: Print image url
-        run: echo "Image pushed to ${{ steps.push-to-quay.outputs.registry-paths }}"
+          tags: "java8-adoptopenjdk-hotspot"
