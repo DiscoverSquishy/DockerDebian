@@ -1,0 +1,19 @@
+name: Build & Push Images
+
+on: push
+
+jobs:
+  Java-8-Hotspot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Push Java 8
+        working-directory: ./java/8/temurin/
+        run: |
+          {{ secrets.QUAY_LOGIN }}
+          pwd
+          docker build . -t quay.io/discoversquishy/dockerimages:java8-temurin
+          docker push . quay.io/discoversquishy/dockerimages:java8-temurin
+          docker logout
