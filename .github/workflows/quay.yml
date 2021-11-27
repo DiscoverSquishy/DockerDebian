@@ -12,7 +12,7 @@ jobs:
       - name: Push Java 8
         working-directory: ./java/8/temurin/
         run: |
-          {{ secrets.QUAY_LOGIN }}
+          ${{ secrets.QUAY_LOGIN }}
           pwd
           docker build . -t quay.io/discoversquishy/dockerimages:java8-temurin
           docker push . quay.io/discoversquishy/dockerimages:java8-temurin
