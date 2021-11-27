@@ -1,4 +1,4 @@
-name: Build Docker Image
+name: Lint Check
 
 on: push
 
