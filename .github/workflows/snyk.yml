@@ -6,7 +6,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build a Docker image
-      run: docker build ./java/hotspot/ .
+      run: docker build ./java/11/hotspot/ --file Dockerfile
     - name: Run Snyk to check Docker image for vulnerabilities
       continue-on-error: true
       uses: snyk/actions/docker@master
