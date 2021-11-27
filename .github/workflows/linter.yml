@@ -1,6 +1,9 @@
 name: Lint Check
 
-on: push
+on:
+  push:
+      branches:
+        - develop
 
 jobs:
   LevelOne-Linter:
