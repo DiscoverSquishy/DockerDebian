@@ -1,4 +1,4 @@
-FROM alpine:3.14.0
+FROM alpine:3.14
 
 LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
