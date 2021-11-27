@@ -15,5 +15,5 @@ jobs:
           ${{ secrets.QUAY_LOGIN }}
           pwd
           docker build . -t quay.io/discoversquishy/dockerimages:java8-temurin
-          docker push . quay.io/discoversquishy/dockerimages:java8-temurin
+          docker push quay.io/discoversquishy/dockerimages:java8-temurin
           docker logout
