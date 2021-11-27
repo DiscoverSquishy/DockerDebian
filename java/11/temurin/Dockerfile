@@ -1,4 +1,4 @@
-FROM adoptopenjdk:11-jdk-hotspot
+FROM eclipse-temurin:11
 
 LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 

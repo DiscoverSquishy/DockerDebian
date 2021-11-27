@@ -1,4 +1,4 @@
-FROM adoptopenjdk:8-jdk-openj9
+FROM eclipse-temurin:8
 
 LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
