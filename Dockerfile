@@ -4,7 +4,8 @@ LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
 RUN apk add --no-cache \
     ca-certificates \
-    && adduser -D -h /home/container container
+    && adduser -D -h /home/container container \
+    && apk --no-cache upgrade musl
 
 # package update & upgrade
 RUN apk update --no-cache
@@ -16,7 +17,6 @@ RUN echo "America/New_York" > /etc/timezone && date
 
 # Package cleanup
 RUN rm -rf /var/cache/apk/*
-RUN apk --no-cache upgrade musl
 
 USER container
 ENV USER=container HOME=/home/container
