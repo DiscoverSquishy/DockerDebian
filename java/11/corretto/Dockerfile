@@ -8,8 +8,8 @@ RUN apk add --no-cache \
     && adduser -D -h /home/container container
 
 # package update & upgrade
-RUN apk update --no-cache
-RUN apk upgrade --no-cache
+RUN apk update --no-cache \
+    apk upgrade --no-cache
 
 # Setting Timezone
 RUN apk add --no-cache tzdata openssl && cp /usr/share/zoneinfo/America/New_York /etc/localtime
