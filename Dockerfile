@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM alpine:3.15
 
 LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
@@ -11,11 +11,11 @@ RUN apk add --no-cache \
 RUN apk update --no-cache
 RUN apk upgrade --no-cache
 
-# Optimized manner of provocating a layer
+# Setting Timezone
 RUN apk add --no-cache tzdata openssl && cp /usr/share/zoneinfo/America/New_York /etc/localtime
 RUN echo "America/New_York" > /etc/timezone && date
 
-# package cleanup
+# Package cleanup
 RUN rm -rf /var/cache/apk/*
 
 USER container
