@@ -1,10 +1,11 @@
-FROM alpine:3.15
+FROM amazoncorretto:11-alpine-jdk
 
 LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
-RUN apk add ca-certificates --no-cache \
-    && adduser -D -h /home/container container \
-    && apk --no-cache upgrade musl
+RUN apk add --no-cache \
+    ca-certificates \
+    && apk del musl \
+    && adduser -D -h /home/container container
 
 # package update & upgrade
 RUN apk update --no-cache \
