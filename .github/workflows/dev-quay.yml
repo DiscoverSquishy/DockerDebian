@@ -12,6 +12,8 @@ jobs:
   Alpine-Base:
     runs-on: ubuntu-latest
     steps:
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
       - name: Checkout
         uses: actions/checkout@v2
 
