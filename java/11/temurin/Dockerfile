@@ -8,7 +8,7 @@ RUN apt-get update -y --no-install-recommends \
 && useradd -d /home/container -m container \
 && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Enviroment Configuration
+# Environment Configuration
 USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container
