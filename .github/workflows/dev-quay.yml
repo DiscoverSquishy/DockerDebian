@@ -51,6 +51,20 @@ jobs:
           docker push quay.io/discoversquishy/dockerimages:java11-temurin-dev
           docker logout > /dev/null 2>&1
 
+  Java-16-Temurin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Push Java 16 Temurin
+        working-directory: ./java/16/temurin/
+        run: |
+          ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
+          docker build . -t quay.io/discoversquishy/dockerimages:java16-temurin-dev
+          docker push quay.io/discoversquishy/dockerimages:java16-temurin-dev
+          docker logout > /dev/null 2>&1
+
   Java-17-Temurin:
     runs-on: ubuntu-latest
     steps:
@@ -93,6 +107,20 @@ jobs:
           ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
           docker build . -t quay.io/discoversquishy/dockerimages:java11-corretto-dev
           docker push quay.io/discoversquishy/dockerimages:java11-corretto-dev
+          docker logout > /dev/null 2>&1
+
+  Java-16-Corretto:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Push Java 16 Corretto
+        working-directory: ./java/17/corretto/
+        run: |
+          ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
+          docker build . -t quay.io/discoversquishy/dockerimages:java16-corretto-dev
+          docker push quay.io/discoversquishy/dockerimages:java16-corretto-dev
           docker logout > /dev/null 2>&1
 
   Java-17-Corretto:
