@@ -21,8 +21,8 @@ jobs:
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
-        image: ./
-        args: --file=Dockerfile
+        image: quay.io/discoversquishy/dockerimages:alpine-base-dev
+        args: --severity-threshold=high --file=all/Dockerfile
     - name: Upload result to GitHub Code Scanning
       uses: github/codeql-action/upload-sarif@v1
       with:
