@@ -15,8 +15,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Push Java 8
-        uses: satackey/action-docker-layer-caching@v0.0.11
         working-directory: ./java/8/temurin/
         run: |
           ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
