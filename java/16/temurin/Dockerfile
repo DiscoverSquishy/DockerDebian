@@ -1,4 +1,4 @@
-FROM eclipse-temurin:11
+FROM eclipse-temurin:16
 
 LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 

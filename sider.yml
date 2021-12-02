@@ -6,14 +6,13 @@
 # Customize each tool. If analyses fail, try adjusting each option referencing the following example.
 linter:
 
-#   # hadolint example. See https://help.sider.review/tools/dockerfile/hadolint
-#   hadolint:
+#  hadolint example. See https://help.sider.review/tools/dockerfile/hadolint
+   hadolint:
 #     root_dir: project/
 #     target:
 #       - images/**/Dockerfile
-#     ignore:
-#       - DL3003
-#       - SC1010
+     ignore:
+       - DL3018
 #     trusted-registry:
 #       - docker.io
 #       - my-company.com:5000
