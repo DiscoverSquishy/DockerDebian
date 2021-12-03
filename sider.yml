@@ -1,7 +1,0 @@
-linter:
-   hadolint:
-     ignore:
-       - DL3018
-
-   misspell:
-     locale: US
