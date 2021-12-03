@@ -2,25 +2,16 @@ FROM amazoncorretto:16-alpine-jdk
 
 LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
-RUN apk add --no-cache \
-    ca-certificates \
-    && apk del musl \
-    && adduser -D -h /home/container container
+# General Packages
+RUN apt-get update -y --no-install-recommends \
+&& apt-get install -y curl wget ca-certificates openssl git tar sqlite3 fontconfig iproute2 tar --no-install-recommends \
+&& useradd -d /home/container -m container \
+&& apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# package update & upgrade
-RUN apk update --no-cache \
-    apk upgrade --no-cache
-
-# Setting Timezone
-RUN apk add --no-cache tzdata openssl && cp /usr/share/zoneinfo/America/New_York /etc/localtime
-RUN echo "America/New_York" > /etc/timezone && date
-
-# Package cleanup
-RUN rm -rf /var/cache/apk/*
-
+# Environment Configuration
 USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container
 
 COPY ./entrypoint.sh /entrypoint.sh
-CMD ["/bin/ash", "/entrypoint.sh"]
+CMD ["/bin/bash", "/entrypoint.sh"]
