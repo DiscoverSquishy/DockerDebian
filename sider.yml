@@ -5,15 +5,3 @@ linter:
 
    misspell:
      locale: US
-
-shellcheck:
-    root_dir: project/
-    target:
-      - "**/*.{sh,bash}"
-      - shebang: true
-    include: [SC2104, SC2105]
-    exclude:
-    enable: all
-    shell: bash
-    severity: error
-    norc: true
