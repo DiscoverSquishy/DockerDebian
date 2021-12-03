@@ -6,7 +6,7 @@ on:
       - develop
 
 jobs:
-  ## Alpine Base Building
+  # Alpine Base Building
   Alpine-Base:
     runs-on: ubuntu-latest
     steps:
@@ -20,6 +20,22 @@ jobs:
           ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
           docker build . -t quay.io/discoversquishy/dockerimages:alpine-base-dev
           docker push quay.io/discoversquishy/dockerimages:alpine-base-dev
+          docker logout > /dev/null 2>&1
+
+  # Ubuntu Base Building
+  Ubuntu-Base:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+      - name: Push Alpine Base
+        working-directory: ./base/ubuntu/
+        run: |
+          ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
+          docker build . -t quay.io/discoversquishy/dockerimages:ubuntu-base-dev
+          docker push quay.io/discoversquishy/dockerimages:ubuntu-base-dev
           docker logout > /dev/null 2>&1
 
   ## Eclipse Temurin Building
