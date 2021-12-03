@@ -15,7 +15,7 @@ jobs:
 
       - uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Push Alpine Base
-        working-directory: ./
+        working-directory: ./base/alpine/
         run: |
           ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
           docker build . -t quay.io/discoversquishy/dockerimages:alpine-base
