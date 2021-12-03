@@ -16,3 +16,4 @@ jobs:
           with:
             dockerfile: ./base/alpine/Dockerfile
             failure-threshold: error
+            ignore: DL3018
