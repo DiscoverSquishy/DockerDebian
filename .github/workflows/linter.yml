@@ -6,19 +6,19 @@ on:
         - develop
 
 jobs:
-  LevelOne-Linter:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v2
+  # LevelOne-Linter:
+  #     runs-on: ubuntu-latest
+  #     steps:
+  #       - name: Checkout
+  #         uses: actions/checkout@v2
 
-        - name: Linting All Codebase
-          uses: github/super-linter@v4.8.4
-          env:
-            VALIDATE_BASH: true
-            VALIDATE_DOCKERFILE: true
-            VALIDATE_ENV: true
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #       - name: Linting All Codebase
+  #         uses: github/super-linter@v4.8.4
+  #         env:
+  #           VALIDATE_BASH: true
+  #           VALIDATE_DOCKERFILE: true
+  #           VALIDATE_ENV: true
+  #           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   LevelTwo-Linter:
     runs-on: ubuntu-latest
