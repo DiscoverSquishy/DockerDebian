@@ -6,33 +6,14 @@ on:
         - develop
 
 jobs:
-  LevelOne-Linter:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: satackey/action-docker-layer-caching@v0.0.11
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - uses: satackey/action-docker-layer-caching@v0.0.11
-      - name: Lint Runner
-        uses: luke142367/Docker-Lint-Action@v1.1.1
-        with:
-          target: Dockerfile
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  LevelTwo-Linter:
+  Alpine-Base-Lint:
       runs-on: ubuntu-latest
       steps:
-        - uses: satackey/action-docker-layer-caching@v0.0.11
         - name: Checkout
           uses: actions/checkout@v2
 
-        - uses: satackey/action-docker-layer-caching@v0.0.11
-        - name: Linting All Codebase
-          uses: github/super-linter@v4.8.4
-          env:
-            VALIDATE_BASH: true
-            VALIDATE_DOCKERFILE: true
-            VALIDATE_ENV: true
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./base/alpine/Dockerfile
+            failure-threshold: error
+            ignore: DL3018
