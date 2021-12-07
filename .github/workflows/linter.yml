@@ -2,8 +2,12 @@ name: Lint Check
 
 on:
   push:
-      branches:
-        - develop
+    branches:
+      - develop
+    paths:
+    - 'nodejs/**'
+    - 'java/**'
+    - 'base/**'
 
 jobs:
   Alpine-Base-Lint:
