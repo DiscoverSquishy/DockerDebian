@@ -1,10 +1,11 @@
-FROM quay.io/discoversquishy/dockerimages:ubuntu-base-dev
+FROM quay.io/discoversquishy/dockerimages:ubuntu-base
 
 LABEL name="Ubuntu-Node-16" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
 # NodeV12 Installation
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
-RUN apt-get install -y nodejs
+RUN apt-get install -y --no-install-recommends nodejs 2>&1 | \
+    grep -v "^debconf: delaying package configuration, since apt-utils.*"
 
 # Clear Cache Packages
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
