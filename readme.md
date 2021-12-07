@@ -1,4 +1,4 @@
 # Squishy's Docker Images
 
-###  Hi! This is gonna be my little sandbox for a little while, I'll be using this to understand and implement different projects using Docker.
-[EOF]
+##  This is where I will mostly be creating images I would be using here and there.
+<EOF/>
