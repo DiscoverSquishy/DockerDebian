@@ -4,6 +4,10 @@ on:
   push:
       branches:
         - main
+      paths:
+        - 'nodejs/**'
+        - 'java/**'
+        - 'base/**'
 
 jobs:
   # Alpine Base Building

@@ -1,13 +1,6 @@
 name: Lint Check
 
-on:
-  push:
-    branches:
-      - develop
-    paths:
-    - 'nodejs/**'
-    - 'java/**'
-    - 'base/**'
+on: push
 
 jobs:
   Alpine-Base-Lint:
@@ -19,5 +12,82 @@ jobs:
         - uses: hadolint/hadolint-action@v1.6.0
           with:
             dockerfile: ./base/alpine/Dockerfile
+            failure-threshold: error
+            ignore: DL3018
+  Ubuntu-Base-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./base/ubuntu/Dockerfile
+            failure-threshold: error
+            ignore: DL3018
+  NodeJS-Ubuntu-12-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./nodejs/ubuntu/12/Dockerfile
+            failure-threshold: error
+            ignore: DL3018
+  NodeJS-Ubuntu-14-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./nodejs/ubuntu/14/Dockerfile
+            failure-threshold: error
+            ignore: DL3018
+  NodeJS-Ubuntu-16-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./nodejs/ubuntu/16/Dockerfile
+            failure-threshold: error
+            ignore: DL3018
+  NodeJS-Ubuntu-17-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./nodejs/ubuntu/17/Dockerfile
+            failure-threshold: error
+            ignore: DL3018
+  NodeJS-Ubuntu-LTS-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./nodejs/ubuntu/lts/Dockerfile
+            failure-threshold: error
+            ignore: DL3018
+  NodeJS-Ubuntu-Current-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./nodejs/ubuntu/current/Dockerfile
             failure-threshold: error
             ignore: DL3018
