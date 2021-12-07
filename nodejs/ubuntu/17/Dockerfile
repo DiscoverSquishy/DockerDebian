@@ -4,7 +4,8 @@ LABEL name="Ubuntu-Node-17" author="DiscoverSquishy" maintainer="noaimi2214@gmai
 
 # NodeV12 Installation
 RUN curl -fsSL https://deb.nodesource.com/setup_17.x | bash -
-RUN apt-get install -y nodejs
+RUN apt-get install -y --no-install-recommends nodejs 2>&1 | \
+    grep -v "^debconf: delaying package configuration, since apt-utils.*"
 
 # Clear Cache Packages
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
