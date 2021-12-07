@@ -1,4 +1,4 @@
-FROM quay.io/discoversquishy/dockerimages:ubuntu-base-dev
+FROM quay.io/discoversquishy/dockerimages:ubuntu-base
 
 LABEL name="Ubuntu-Node-16" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
