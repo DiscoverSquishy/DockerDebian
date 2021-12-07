@@ -4,7 +4,7 @@ LABEL name="Ubuntu-Node-LTS" author="DiscoverSquishy" maintainer="noaimi2214@gma
 
 # General Packages
 RUN apt-get update -y --no-install-recommends \
-&& apt-get install -y curl wget ca-certificates openssl git tar sqlite3 fontconfig iproute2 tar --no-install-recommends \
+&& apt-get install -y curl build-essential wget ca-certificates openssl git tar sqlite3 fontconfig iproute2 tar --no-install-recommends \
 && useradd -d /home/container -m container \
 && apt-get clean && rm -rf /var/lib/apt/lists/*
 
