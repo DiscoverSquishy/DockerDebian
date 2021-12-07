@@ -1,6 +1,11 @@
 name: Lint Check
 
-on: push
+on:
+  push:
+      paths:
+        - 'nodejs/**'
+        - 'java/**'
+        - 'base/**'
 
 jobs:
   Alpine-Base-Lint:
