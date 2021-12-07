@@ -13,7 +13,7 @@ jobs:
           with:
             dockerfile: ./base/alpine/Dockerfile
             failure-threshold: error
-            ignore: DL3018
+            ignore:  
   Ubuntu-Base-Lint:
       runs-on: ubuntu-latest
       steps:
@@ -24,7 +24,7 @@ jobs:
           with:
             dockerfile: ./base/ubuntu/Dockerfile
             failure-threshold: error
-            ignore: DL3018
+            ignore:  
   NodeJS-Ubuntu-12-Lint:
       runs-on: ubuntu-latest
       steps:
@@ -35,7 +35,7 @@ jobs:
           with:
             dockerfile: ./nodejs/ubuntu/12/Dockerfile
             failure-threshold: error
-            ignore: DL3018
+            ignore:  
   NodeJS-Ubuntu-14-Lint:
       runs-on: ubuntu-latest
       steps:
@@ -46,7 +46,7 @@ jobs:
           with:
             dockerfile: ./nodejs/ubuntu/14/Dockerfile
             failure-threshold: error
-            ignore: DL3018
+            ignore:  
   NodeJS-Ubuntu-16-Lint:
       runs-on: ubuntu-latest
       steps:
@@ -57,7 +57,7 @@ jobs:
           with:
             dockerfile: ./nodejs/ubuntu/16/Dockerfile
             failure-threshold: error
-            ignore: DL3018
+            ignore:  
   NodeJS-Ubuntu-17-Lint:
       runs-on: ubuntu-latest
       steps:
@@ -68,7 +68,7 @@ jobs:
           with:
             dockerfile: ./nodejs/ubuntu/17/Dockerfile
             failure-threshold: error
-            ignore: DL3018
+            ignore:  
   NodeJS-Ubuntu-LTS-Lint:
       runs-on: ubuntu-latest
       steps:
@@ -79,7 +79,7 @@ jobs:
           with:
             dockerfile: ./nodejs/ubuntu/lts/Dockerfile
             failure-threshold: error
-            ignore: DL3018
+            ignore:  
   NodeJS-Ubuntu-Current-Lint:
       runs-on: ubuntu-latest
       steps:
@@ -90,4 +90,4 @@ jobs:
           with:
             dockerfile: ./nodejs/ubuntu/current/Dockerfile
             failure-threshold: error
-            ignore: DL3018
+            ignore:  
