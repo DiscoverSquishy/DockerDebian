@@ -1,0 +1,186 @@
+name: Lint Check
+
+on:
+  push:
+      paths:
+        - 'nodejs/**'
+        - 'java/**'
+        - 'base/**'
+
+jobs:
+  Alpine-Base-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./base/alpine/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
+  Ubuntu-Base-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./base/ubuntu/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
+  NodeJS-Ubuntu-12-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./nodejs/ubuntu/12/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
+  NodeJS-Ubuntu-14-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./nodejs/ubuntu/14/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
+  NodeJS-Ubuntu-16-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./nodejs/ubuntu/16/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
+  NodeJS-Ubuntu-17-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./nodejs/ubuntu/17/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
+  NodeJS-Ubuntu-LTS-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./nodejs/ubuntu/lts/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
+  NodeJS-Ubuntu-Current-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./nodejs/ubuntu/current/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
+  Java-8-Temurin:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./java/8/temurin/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
+  Java-8-Corretto:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./java/8/corretto/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
+  Java-11-Temurin:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./java/11/temurin/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
+  Java-11-Corretto:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./java/11/corretto/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
+  Java-16-Temurin:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./java/16/temurin/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
+  Java-16-Corretto:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./java/16/corretto/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
+  Java-17-Temurin:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./java/17/temurin/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
+  Java-17-Corretto:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./java/8/corretto/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
