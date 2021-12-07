@@ -13,7 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Push Alpine Base
         working-directory: ./base/alpine/
         run: |
@@ -29,7 +28,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Push Alpine Base
         working-directory: ./base/ubuntu/
         run: |
@@ -45,7 +43,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Push Java 8 Temurin
         working-directory: ./java/8/temurin/
         run: |
@@ -60,7 +57,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Push Java 11 Temurin
         working-directory: ./java/11/temurin/
         run: |
@@ -75,7 +71,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Push Java 16 Temurin
         working-directory: ./java/16/temurin/
         run: |
@@ -90,7 +85,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Push Java 17 Temurin
         working-directory: ./java/17/temurin/
         run: |
@@ -107,7 +101,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Push Java 8 Corretto
         working-directory: ./java/8/corretto/
         run: |
@@ -122,7 +115,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Push Java 11 Corretto
         working-directory: ./java/11/corretto/
         run: |
@@ -137,7 +129,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Push Java 16 Corretto
         working-directory: ./java/16/corretto/
         run: |
@@ -152,7 +143,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Push Java 17 Corretto
         working-directory: ./java/17/corretto/
         run: |
@@ -168,7 +158,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Push Node-Current Ubuntu
         working-directory: ./nodejs/ubuntu/current/
         run: |
@@ -183,7 +172,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Push Node-LTS Ubuntu
         working-directory: ./nodejs/ubuntu/lts/
         run: |
@@ -198,7 +186,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Push Node-17 Ubuntu
         working-directory: ./nodejs/ubuntu/17/
         run: |
@@ -213,7 +200,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Push Node-16 Ubuntu
         working-directory: ./nodejs/ubuntu/16/
         run: |
@@ -228,7 +214,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Push Node-14 Ubuntu
         working-directory: ./nodejs/ubuntu/14/
         run: |
@@ -243,7 +228,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: satackey/action-docker-layer-caching@v0.0.11
       - name: Push Node-12 Ubuntu
         working-directory: ./nodejs/ubuntu/12/
         run: |
