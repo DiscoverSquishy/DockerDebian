@@ -16,7 +16,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+        with:
+          key: alpine-{hash}
+          restore-keys: |
+            alpine-dev-
       - name: Push Alpine Base
         working-directory: ./base/alpine/
         run: |
@@ -31,8 +36,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Push Alpine Base
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+        with:
+          key: ubuntu-dev-{hash}
+          restore-keys: |
+            ubuntu-dev-
+      - name: Push Ubuntu Base
         working-directory: ./base/ubuntu/
         run: |
           ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
@@ -46,7 +56,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+        with:
+          key: temurin-dev-{hash}
+          restore-keys: |
+            temurin-dev-
       - name: Push Java 8 Temurin
         working-directory: ./java/8/temurin/
         run: |
@@ -60,7 +75,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+        with:
+          key: temurin-dev-{hash}
+          restore-keys: |
+            temurin-dev-
       - name: Push Java 11 Temurin
         working-directory: ./java/11/temurin/
         run: |
@@ -74,7 +94,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+        with:
+          key: temurin-dev-{hash}
+          restore-keys: |
+            temurin-dev-
       - name: Push Java 16 Temurin
         working-directory: ./java/16/temurin/
         run: |
@@ -88,7 +113,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+        with:
+          key: temurin-dev-{hash}
+          restore-keys: |
+            temurin-dev-
       - name: Push Java 17 Temurin
         working-directory: ./java/17/temurin/
         run: |
@@ -104,7 +134,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
       - name: Push Java 8 Corretto
         working-directory: ./java/8/corretto/
         run: |
@@ -118,7 +149,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
       - name: Push Java 11 Corretto
         working-directory: ./java/11/corretto/
         run: |
@@ -132,7 +164,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
       - name: Push Java 16 Corretto
         working-directory: ./java/17/corretto/
         run: |
@@ -146,7 +179,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
       - name: Push Java 17 Corretto
         working-directory: ./java/17/corretto/
         run: |
@@ -156,86 +190,88 @@ jobs:
           docker logout > /dev/null 2>&1
 
   ## Ubuntu NodeJS Building
-  # Node-Current-Ubuntu:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
+  Node-Current-Ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+      - name: Push Node-Current Ubuntu
+        working-directory: ./nodejs/ubuntu/current/
+        run: |
+          ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
+          docker build . -t quay.io/discoversquishy/dockerimages:node-current-ubuntu-dev
+          docker push quay.io/discoversquishy/dockerimages:node-current-ubuntu-dev
+          docker logout > /dev/null 2>&1
 
-  #     - name: Push Node-Current Ubuntu
-  #       working-directory: ./nodejs/ubuntu/current/
-  #       run: |
-  #         ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
-  #         docker build . -t quay.io/discoversquishy/dockerimages:node-current-ubuntu-dev
-  #         docker push quay.io/discoversquishy/dockerimages:node-current-ubuntu-dev
-  #         docker logout > /dev/null 2>&1
+  Node-LTS-Ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+      - name: Push Node-LTS Ubuntu
+        working-directory: ./nodejs/ubuntu/lts/
+        run: |
+          ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
+          docker build . -t quay.io/discoversquishy/dockerimages:node-lts-ubuntu-dev
+          docker push quay.io/discoversquishy/dockerimages:node-lts-ubuntu-dev
+          docker logout > /dev/null 2>&1
 
-  # Node-LTS-Ubuntu:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
+  Node-17-Ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-  #     - name: Push Node-LTS Ubuntu
-  #       working-directory: ./nodejs/ubuntu/lts/
-  #       run: |
-  #         ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
-  #         docker build . -t quay.io/discoversquishy/dockerimages:node-lts-ubuntu-dev
-  #         docker push quay.io/discoversquishy/dockerimages:node-lts-ubuntu-dev
-  #         docker logout > /dev/null 2>&1
+      - name: Push Node-17 Ubuntu
+        working-directory: ./nodejs/ubuntu/17/
+        run: |
+          ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
+          docker build . -t quay.io/discoversquishy/dockerimages:node-17-ubuntu-dev
+          docker push quay.io/discoversquishy/dockerimages:node-17-ubuntu-dev
+          docker logout > /dev/null 2>&1
 
-  # Node-17-Ubuntu:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
+  Node-16-Ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-  #     - name: Push Node-17 Ubuntu
-  #       working-directory: ./nodejs/ubuntu/17/
-  #       run: |
-  #         ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
-  #         docker build . -t quay.io/discoversquishy/dockerimages:node-17-ubuntu-dev
-  #         docker push quay.io/discoversquishy/dockerimages:node-17-ubuntu-dev
-  #         docker logout > /dev/null 2>&1
+      - name: Push Node-16 Ubuntu
+        working-directory: ./nodejs/ubuntu/16/
+        run: |
+          ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
+          docker build . -t quay.io/discoversquishy/dockerimages:node-16-ubuntu-dev
+          docker push quay.io/discoversquishy/dockerimages:node-16-ubuntu-dev
+          docker logout > /dev/null 2>&1
 
-  # Node-16-Ubuntu:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
+  Node-14-Ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-  #     - name: Push Node-16 Ubuntu
-  #       working-directory: ./nodejs/ubuntu/16/
-  #       run: |
-  #         ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
-  #         docker build . -t quay.io/discoversquishy/dockerimages:node-16-ubuntu-dev
-  #         docker push quay.io/discoversquishy/dockerimages:node-16-ubuntu-dev
-  #         docker logout > /dev/null 2>&1
+      - name: Push Node-14 Ubuntu
+        working-directory: ./nodejs/ubuntu/14/
+        run: |
+          ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
+          docker build . -t quay.io/discoversquishy/dockerimages:node-14-ubuntu-dev
+          docker push quay.io/discoversquishy/dockerimages:node-14-ubuntu-dev
+          docker logout > /dev/null 2>&1
 
-  # Node-14-Ubuntu:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
+  Node-12-Ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-  #     - name: Push Node-14 Ubuntu
-  #       working-directory: ./nodejs/ubuntu/14/
-  #       run: |
-  #         ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
-  #         docker build . -t quay.io/discoversquishy/dockerimages:node-14-ubuntu-dev
-  #         docker push quay.io/discoversquishy/dockerimages:node-14-ubuntu-dev
-  #         docker logout > /dev/null 2>&1
-
-  # Node-12-Ubuntu:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
-
-  #     - name: Push Node-12 Ubuntu
-  #       working-directory: ./nodejs/ubuntu/12/
-  #       run: |
-  #         ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
-  #         docker build . -t quay.io/discoversquishy/dockerimages:node-12-ubuntu-dev
-  #         docker push quay.io/discoversquishy/dockerimages:node-12-ubuntu-dev
-  #         docker logout > /dev/null 2>&1
+      - name: Push Node-12 Ubuntu
+        working-directory: ./nodejs/ubuntu/12/
+        run: |
+          ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
+          docker build . -t quay.io/discoversquishy/dockerimages:node-12-ubuntu-dev
+          docker push quay.io/discoversquishy/dockerimages:node-12-ubuntu-dev
+          docker logout > /dev/null 2>&1
