@@ -12,17 +12,7 @@ RUN apk --no-cache add \
     "sqlite" \
     "fontconfig" \
     "iproute2" \
-    "gcc" \
-    "make" \
-    "cmake" \
     "tar"
-
-RUN wget https://git.musl-libc.org/cgit/musl/snapshot/musl-1.2.2.tar.gz
-RUN tar -xvf musl-1.2.2.tar.gz
-RUN cd musl-1.2.2
-RUN ./musl-1.2.2/configure
-RUN make
-RUN make install
 
 RUN adduser -D -h /home/container container
 
