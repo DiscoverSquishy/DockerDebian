@@ -1,4 +1,4 @@
-FROM quay.io/discoversquishy/dockerimages:ubuntu-base
+FROM quay.io/discoversquishy/dockerimages:ubuntu-rolling-base
 
 LABEL name="Ubuntu-NodeJS-LTS" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
