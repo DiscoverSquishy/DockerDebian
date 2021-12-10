@@ -1,0 +1,45 @@
+name: Dev Build & Push
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+    - 'nodejs/**'
+    - 'java/**'
+    - 'base/**'
+
+jobs:
+  # Node Ubuntu Building
+  Node-Current-Ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Push Node-Current Ubuntu
+        run: |
+          cd ./nodejs/ubuntu/current/
+          ${{ secrets.QUAY_LOGIN }} > /dev/null 2>&1
+          docker build . -t quay.io/discoversquishy/dockerimages:node-current-ubuntu-dev-speed
+          docker push quay.io/discoversquishy/dockerimages:node-current-ubuntu-dev-speed
+
+          cd ./nodejs/ubuntu/lts/
+          docker build . -t quay.io/discoversquishy/dockerimages:node-lts-ubuntu-dev-speed
+          docker push quay.io/discoversquishy/dockerimages:node-lts-ubuntu-dev-speed
+
+          cd ./nodejs/ubuntu/17/
+          docker build . -t quay.io/discoversquishy/dockerimages:node-17-ubuntu-dev-speed
+          docker push quay.io/discoversquishy/dockerimages:node-17-ubuntu-dev-speed
+
+          cd ./nodejs/ubuntu/16/
+          docker build . -t quay.io/discoversquishy/dockerimages:node-16-ubuntu-dev-speed
+          docker push quay.io/discoversquishy/dockerimages:node-16-ubuntu-dev-speed
+
+          cd ./nodejs/ubuntu/14/
+          docker build . -t quay.io/discoversquishy/dockerimages:node-14-ubuntu-dev-speed
+          docker push quay.io/discoversquishy/dockerimages:node-14-ubuntu-dev-speed
+
+          cd ./nodejs/ubuntu/12/
+          docker build . -t quay.io/discoversquishy/dockerimages:node-12-ubuntu-dev-speed
+          docker push quay.io/discoversquishy/dockerimages:node-12-ubuntu-dev-speed
