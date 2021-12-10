@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:20.04
 
 LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
