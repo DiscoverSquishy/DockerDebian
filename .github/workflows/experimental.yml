@@ -1,0 +1,48 @@
+name: Experimental Images
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+    - 'experimental/**'
+
+jobs:
+  # Experimental NodeJS Building
+  Experimental-NodeJS-LTS:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+        with:
+          key: ubuntu-nodeltsexp-dev-{hash}
+          restore-keys: |
+            ubuntu-nodeltsexp-dev-
+      - name: Push Ubuntu Base
+        working-directory: ./experimental/lts/
+        run: |
+          ${{ secrets.QUAY_LOGIN }}
+          docker build . -t quay.io/discoversquishy/dockerimages:ubuntu-rolling-base-lts
+          docker push quay.io/discoversquishy/dockerimages:ubuntu-rolling-base-lts
+          docker logout > /dev/null 2>&1
+
+  Experimental-NodeJS-12:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+        with:
+          key: ubuntu-node12exp-dev-{hash}
+          restore-keys: |
+            ubuntu-node12exp-dev-
+      - name: Push Ubuntu Base
+        working-directory: ./experimental/lts/
+        run: |
+          ${{ secrets.QUAY_LOGIN }}
+          docker build . -t quay.io/discoversquishy/dockerimages:ubuntu-rolling-base-12
+          docker push quay.io/discoversquishy/dockerimages:ubuntu-rolling-base-12
+          docker logout > /dev/null 2>&1
