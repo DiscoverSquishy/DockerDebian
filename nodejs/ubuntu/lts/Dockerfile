@@ -1,6 +1,6 @@
 FROM quay.io/discoversquishy/dockerimages:ubuntu-base
 
-LABEL name="Ubuntu-Node-LTS" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
+LABEL name="Ubuntu-NodeJS-LTS" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
 # NodeV12 Installation
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -

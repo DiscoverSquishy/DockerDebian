@@ -59,9 +59,9 @@ jobs:
       - uses: satackey/action-docker-layer-caching@v0.0.11
         continue-on-error: true
         with:
-          key: temurin-dev-{hash}
+          key: temurin-8-dev-{hash}
           restore-keys: |
-            temurin-dev-
+            temurin-8-dev-
       - name: Push Java 8 Temurin
         working-directory: ./java/8/temurin/
         run: |
@@ -78,9 +78,9 @@ jobs:
       - uses: satackey/action-docker-layer-caching@v0.0.11
         continue-on-error: true
         with:
-          key: temurin-dev-{hash}
+          key: temurin-11-dev-{hash}
           restore-keys: |
-            temurin-dev-
+            temurin-11-dev-
       - name: Push Java 11 Temurin
         working-directory: ./java/11/temurin/
         run: |
@@ -97,9 +97,9 @@ jobs:
       - uses: satackey/action-docker-layer-caching@v0.0.11
         continue-on-error: true
         with:
-          key: temurin-dev-{hash}
+          key: temurin-16-dev-{hash}
           restore-keys: |
-            temurin-dev-
+            temurin-16-dev-
       - name: Push Java 16 Temurin
         working-directory: ./java/16/temurin/
         run: |
@@ -116,9 +116,9 @@ jobs:
       - uses: satackey/action-docker-layer-caching@v0.0.11
         continue-on-error: true
         with:
-          key: temurin-dev-{hash}
+          key: temurin-17-dev-{hash}
           restore-keys: |
-            temurin-dev-
+            temurin-17-dev-
       - name: Push Java 17 Temurin
         working-directory: ./java/17/temurin/
         run: |
@@ -136,6 +136,10 @@ jobs:
         uses: actions/checkout@v2
       - uses: satackey/action-docker-layer-caching@v0.0.11
         continue-on-error: true
+        with:
+          key: corretto-8-dev-{hash}
+          restore-keys: |
+            corretto-8-dev-
       - name: Push Java 8 Corretto
         working-directory: ./java/8/corretto/
         run: |
@@ -151,6 +155,10 @@ jobs:
         uses: actions/checkout@v2
       - uses: satackey/action-docker-layer-caching@v0.0.11
         continue-on-error: true
+        with:
+          key: corretto-11-dev-{hash}
+          restore-keys: |
+            corretto-11-dev-
       - name: Push Java 11 Corretto
         working-directory: ./java/11/corretto/
         run: |
@@ -166,6 +174,10 @@ jobs:
         uses: actions/checkout@v2
       - uses: satackey/action-docker-layer-caching@v0.0.11
         continue-on-error: true
+        with:
+          key: corretto-16-dev-{hash}
+          restore-keys: |
+            corretto-16-dev-
       - name: Push Java 16 Corretto
         working-directory: ./java/17/corretto/
         run: |
@@ -181,6 +193,10 @@ jobs:
         uses: actions/checkout@v2
       - uses: satackey/action-docker-layer-caching@v0.0.11
         continue-on-error: true
+        with:
+          key: corretto-17-dev-{hash}
+          restore-keys: |
+            corretto-17-dev-
       - name: Push Java 17 Corretto
         working-directory: ./java/17/corretto/
         run: |
@@ -197,6 +213,10 @@ jobs:
         uses: actions/checkout@v2
       - uses: satackey/action-docker-layer-caching@v0.0.11
         continue-on-error: true
+        with:
+          key: nodejs-current-dev-{hash}
+          restore-keys: |
+            nodejs-current-dev-
       - name: Push Node-Current Ubuntu
         working-directory: ./nodejs/ubuntu/current/
         run: |
@@ -212,6 +232,10 @@ jobs:
         uses: actions/checkout@v2
       - uses: satackey/action-docker-layer-caching@v0.0.11
         continue-on-error: true
+        with:
+          key: nodejs-lts-dev-{hash}
+          restore-keys: |
+            nodejs-lts-dev-
       - name: Push Node-LTS Ubuntu
         working-directory: ./nodejs/ubuntu/lts/
         run: |
@@ -225,7 +249,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+        with:
+          key: nodejs-17-dev-{hash}
+          restore-keys: |
+            nodejs-17-dev-
       - name: Push Node-17 Ubuntu
         working-directory: ./nodejs/ubuntu/17/
         run: |
@@ -239,7 +268,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+        with:
+          key: nodejs-16-dev-{hash}
+          restore-keys: |
+            nodejs-16-dev-
       - name: Push Node-16 Ubuntu
         working-directory: ./nodejs/ubuntu/16/
         run: |
@@ -253,7 +287,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+        with:
+          key: nodejs-14-dev-{hash}
+          restore-keys: |
+            nodejs-14-dev-
       - name: Push Node-14 Ubuntu
         working-directory: ./nodejs/ubuntu/14/
         run: |
@@ -267,7 +306,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+        with:
+          key: nodejs-12-dev-{hash}
+          restore-keys: |
+            nodejs-12-dev-
       - name: Push Node-12 Ubuntu
         working-directory: ./nodejs/ubuntu/12/
         run: |
