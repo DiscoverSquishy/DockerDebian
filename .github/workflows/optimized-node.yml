@@ -1,4 +1,4 @@
-name: Dev Build & Push
+name: Optimized NodeJS Deployment
 
 on:
   push:
