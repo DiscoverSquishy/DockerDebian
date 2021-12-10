@@ -236,7 +236,7 @@ jobs:
   ## Ubuntu NodeJS Building
   Node-Current-Ubuntu:
     runs-on: ubuntu-latest
-    needs: Ubuntu-Base
+    needs: Ubuntu-Rolling-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -256,7 +256,7 @@ jobs:
 
   Node-LTS-Ubuntu:
     runs-on: ubuntu-latest
-    needs: Ubuntu-Base
+    needs: Ubuntu-Rolling-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -276,7 +276,7 @@ jobs:
 
   Node-17-Ubuntu:
     runs-on: ubuntu-latest
-    needs: Ubuntu-Base
+    needs: Ubuntu-Rolling-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -296,7 +296,7 @@ jobs:
 
   Node-16-Ubuntu:
     runs-on: ubuntu-latest
-    needs: Ubuntu-Base
+    needs: Ubuntu-Rolling-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -316,7 +316,7 @@ jobs:
 
   Node-14-Ubuntu:
     runs-on: ubuntu-latest
-    needs: Ubuntu-Base
+    needs: Ubuntu-Rolling-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -336,7 +336,7 @@ jobs:
 
   Node-12-Ubuntu:
     runs-on: ubuntu-latest
-    needs: Ubuntu-Base
+    needs: Ubuntu-Rolling-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
