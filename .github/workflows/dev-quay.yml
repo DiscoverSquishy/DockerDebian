@@ -33,7 +33,6 @@ jobs:
   # Ubuntu Base Building
   Ubuntu-Base:
     runs-on: ubuntu-latest
-    needs: Alpine-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -136,7 +135,7 @@ jobs:
 
   Java-8-Corretto:
     runs-on: ubuntu-latest
-    needs: Ubuntu-Base
+    needs: Java-8-Temurin
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -156,7 +155,7 @@ jobs:
 
   Java-11-Corretto:
     runs-on: ubuntu-latest
-    needs: Ubuntu-Base
+    needs: Java-11-Temurin
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -176,7 +175,7 @@ jobs:
 
   Java-16-Corretto:
     runs-on: ubuntu-latest
-    needs: Ubuntu-Base
+    needs: Java-16-Temurin
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -196,7 +195,7 @@ jobs:
 
   Java-17-Corretto:
     runs-on: ubuntu-latest
-    needs: Ubuntu-Base
+    needs: Java-17-Corretto
     steps:
       - name: Checkout
         uses: actions/checkout@v2
