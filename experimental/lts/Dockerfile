@@ -1,4 +1,4 @@
-FROM quay.io/discoversquishy/dockerimages:ubuntu-rolling-base
+FROM quay.io/discoversquishy/dockerimages:ubuntu-rolling-base-dev
 
 LABEL name="Ubuntu-Experimental-LTS" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
