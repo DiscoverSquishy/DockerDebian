@@ -24,6 +24,7 @@ jobs:
   # Ubuntu Base Building
   Ubuntu-Base:
     runs-on: ubuntu-latest
+    needs: Alpine-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -39,6 +40,7 @@ jobs:
   ## Eclipse Temurin Building
   Java-8-Temurin:
     runs-on: ubuntu-latest
+    needs: Ubuntu-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -53,6 +55,7 @@ jobs:
 
   Java-11-Temurin:
     runs-on: ubuntu-latest
+    needs: Ubuntu-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -67,6 +70,7 @@ jobs:
 
   Java-16-Temurin:
     runs-on: ubuntu-latest
+    needs: Ubuntu-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -81,6 +85,7 @@ jobs:
 
   Java-17-Temurin:
     runs-on: ubuntu-latest
+    needs: Ubuntu-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -97,6 +102,7 @@ jobs:
 
   Java-8-Corretto:
     runs-on: ubuntu-latest
+    needs: Ubuntu-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -111,6 +117,7 @@ jobs:
 
   Java-11-Corretto:
     runs-on: ubuntu-latest
+    needs: Ubuntu-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -125,6 +132,7 @@ jobs:
 
   Java-16-Corretto:
     runs-on: ubuntu-latest
+    needs: Ubuntu-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -139,6 +147,7 @@ jobs:
 
   Java-17-Corretto:
     runs-on: ubuntu-latest
+    needs: Ubuntu-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -154,6 +163,7 @@ jobs:
   ## Ubuntu NodeJS Building
   Node-Current-Ubuntu:
     runs-on: ubuntu-latest
+    needs: Ubuntu-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -168,6 +178,7 @@ jobs:
 
   Node-LTS-Ubuntu:
     runs-on: ubuntu-latest
+    needs: Ubuntu-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -182,6 +193,7 @@ jobs:
 
   Node-17-Ubuntu:
     runs-on: ubuntu-latest
+    needs: Ubuntu-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -196,6 +208,7 @@ jobs:
 
   Node-16-Ubuntu:
     runs-on: ubuntu-latest
+    needs: Ubuntu-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -210,6 +223,7 @@ jobs:
 
   Node-14-Ubuntu:
     runs-on: ubuntu-latest
+    needs: Ubuntu-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -224,6 +238,7 @@ jobs:
 
   Node-12-Ubuntu:
     runs-on: ubuntu-latest
+    needs: Ubuntu-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
