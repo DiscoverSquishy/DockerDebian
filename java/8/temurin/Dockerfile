@@ -1,6 +1,6 @@
 FROM eclipse-temurin:8
 
-LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
+LABEL software="Java-Temurin" version="Java-8" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
 # General Packages
 RUN apt-get update -y --no-install-recommends \

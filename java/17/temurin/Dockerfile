@@ -1,6 +1,6 @@
 FROM eclipse-temurin:17
 
-LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
+LABEL software="Java-Temurin" version="Java-17" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
 # General Packages
 RUN apt-get update -y --no-install-recommends \
