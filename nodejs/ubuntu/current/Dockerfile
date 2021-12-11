@@ -1,6 +1,6 @@
 FROM quay.io/discoversquishy/dockerimages:ubuntu-rolling-base
 
-LABEL name="Ubuntu-NodeJS-Current" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
+LABEL software="NodeJS" version="NJS-Curent" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
 # NodeV12 Installation
 RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash -

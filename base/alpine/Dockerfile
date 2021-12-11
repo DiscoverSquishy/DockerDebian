@@ -2,10 +2,22 @@ FROM alpine:3.15
 
 LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
-RUN apk add ca-certificates curl wget openssl git tar sqlite fontconfig iproute2 tar --no-cache
+RUN apk --no-cache add \
+    "ca-certificates" \
+    "curl" \
+    "wget" \
+    "openssl" \
+    "git" \
+    "tar" \
+    "sqlite" \
+    "fontconfig" \
+    "iproute2" \
+    "tar"
+
+RUN adduser -D -h /home/container container
 
 # package update & upgrade
-RUN apk u--no-cache update  \
+RUN apk --no-cache update  \
     apk --no-cache upgrade
 
 # Package cleanup
