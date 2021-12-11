@@ -1,6 +1,6 @@
 FROM quay.io/discoversquishy/dockerimages:alpine-base-dev
 
-LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
+LABEL software="Java-Corretto" version="Java-17" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
 RUN wget -O /THIRD-PARTY-LICENSES-20200824.tar.gz https://corretto.aws/downloads/resources/licenses/alpine/THIRD-PARTY-LICENSES-20200824.tar.gz && \
     echo "82f3e50e71b2aee21321b2b33de372feed5befad6ef2196ddec92311bc09becb  /THIRD-PARTY-LICENSES-20200824.tar.gz" | sha256sum -c - && \
