@@ -1,4 +1,4 @@
-FROM quay.io/discoversquishy/dockerimages:alpine-base-dev
+FROM quay.io/discoversquishy/dockerimages:alpine-base
 
 LABEL software="Java-Corretto" version="Java-8" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
