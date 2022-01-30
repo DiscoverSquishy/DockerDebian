@@ -10,5 +10,4 @@ RUN apt-get update -y --no-install-recommends \
     && add-apt-repository ppa:deadsnakes/ppa -y && apt-get update -y --no-install-recommends \
     && apt-get -yq install python3.10 \
     && useradd -d /home/container -m container \
-    && update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1 \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    && update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1

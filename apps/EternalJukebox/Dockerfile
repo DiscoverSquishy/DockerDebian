@@ -1,6 +1,6 @@
 FROM quay.io/discoversquishy/dockerimages:ubuntu-rolling-base
 
-LABEL software="EternalJukebox" maintainer="noaimi2214@gmail.com"
+LABEL software="EternalJukebox" os="Ubuntu-Rolling" maintainer="noaimi2214@gmail.com"
 
 RUN apt-get update -y
 RUN apt-get install default-jre -y
