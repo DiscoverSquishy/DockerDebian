@@ -365,7 +365,7 @@ jobs:
           restore-keys: |
             corretto-8-dev-
       - name: Push EternalJukebox
-        working-directory: ./apps/eternaljukebox/
+        working-directory: apps/eternaljukebox/
         run: |
           ${{ secrets.QUAY_LOGIN }}
           docker build . -t quay.io/discoversquishy/dockerimages:eternaljukebox
