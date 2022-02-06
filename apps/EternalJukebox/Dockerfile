@@ -7,18 +7,12 @@ RUN apt-get install default-jre -y
 RUN curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 RUN chmod a+rx /usr/local/bin/youtube-dl
 RUN apt-get install ffmpeg -y
-RUN mkdir EternalJukebox && cd EternalJukebox
-RUN wget https://jenkins.abimon.org/job/EternalJukebox/lastSuccessfulBuild/artifact/build/libs/EternalJukebox-all.jar
-RUN touch config.json
-RUN wget https://raw.githubusercontent.com/UnderMybrella/EternalJukebox/master/config_template.yaml
-RUN cp config_template.yaml config.yaml && rm config_template.yaml
 
-# Package cleanup
-# RUN rm -rf /var/cache/apk/*
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container
 
 COPY ./entrypoint.sh /entrypoint.sh
-CMD ["/bin/ash", "/entrypoint.sh"]
+CMD ["/bin/bash", "/entrypoint.sh"]

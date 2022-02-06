@@ -289,7 +289,8 @@ jobs:
           docker build . -t quay.io/discoversquishy/dockerimages:node-17-ubuntu
           docker push quay.io/discoversquishy/dockerimages:node-17-ubuntu
           docker logout > /dev/null 2>&1
-
+# write a wiki
+# bundle into dockerfile so its just run and work
   Node-16-Ubuntu:
     runs-on: ubuntu-latest
     needs: Ubuntu-Rolling-Base
@@ -361,13 +362,13 @@ jobs:
       - uses: satackey/action-docker-layer-caching@v0.0.11
         continue-on-error: true
         with:
-          key: eternaljukebox-{hash}
+          key: eternaljukebox-dev-{hash}
           restore-keys: |
-            corretto-8-dev-
-      - name: Push EternalJukebox
-        working-directory: apps/eternaljukebox/
+            dockerimages-
+      - name: Push EternalJukebox Dev
+        working-directory: ./apps/eternaljukebox/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages:eternaljukebox
-          docker push quay.io/discoversquishy/dockerimages:eternaljukebox
+          docker build . -t quay.io/discoversquishy/dockerimages:eternaljukebox-dev
+          docker push quay.io/discoversquishy/dockerimages:eternaljukebox-dev
           docker logout > /dev/null 2>&1
