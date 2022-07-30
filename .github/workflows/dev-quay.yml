@@ -19,10 +19,6 @@ jobs:
         uses: actions/checkout@v2
       - uses: satackey/action-docker-layer-caching@v0.0.11
         continue-on-error: true
-        with:
-          key: alpine-{hash}
-          restore-keys: |
-            alpine-dev-
       - name: Push Alpine Base
         working-directory: ./base/alpine/
         run: |
@@ -39,10 +35,6 @@ jobs:
         uses: actions/checkout@v2
       - uses: satackey/action-docker-layer-caching@v0.0.11
         continue-on-error: true
-        with:
-          key: ubuntu-rolling-dev-{hash}
-          restore-keys: |
-            ubuntu-rolling-dev-
       - name: Push Ubuntu Base
         working-directory: ./base/ubuntu-rolling/
         run: |
@@ -59,10 +51,6 @@ jobs:
         uses: actions/checkout@v2
       - uses: satackey/action-docker-layer-caching@v0.0.11
         continue-on-error: true
-        with:
-          key: ubuntu-dev-{hash}
-          restore-keys: |
-            ubuntu-dev-
       - name: Push Ubuntu Base
         working-directory: ./base/ubuntu/
         run: |
