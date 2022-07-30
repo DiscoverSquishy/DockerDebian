@@ -30,17 +30,6 @@ jobs:
             dockerfile: ./base/ubuntu/Dockerfile
             ignore: DL3018
             failure-threshold: error
-  NodeJS-Ubuntu-12-Lint:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-
-        - uses: hadolint/hadolint-action@v1.6.0
-          with:
-            dockerfile: ./nodejs/ubuntu/12/Dockerfile
-            ignore: DL3018
-            failure-threshold: error
   NodeJS-Ubuntu-14-Lint:
       runs-on: ubuntu-latest
       steps:
