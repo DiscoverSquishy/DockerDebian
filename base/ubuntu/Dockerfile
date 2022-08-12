@@ -9,8 +9,8 @@ RUN apt-get update -y --no-install-recommends \
     && apt-get install -yq software-properties-common curl wget ca-certificates openssl git sqlite3 fontconfig unzip iproute2 tar build-essential --no-install-recommends \
     && curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | bash \
     && add-apt-repository ppa:deadsnakes/ppa -y && apt-get update -y --no-install-recommends \
-    && apt-get -yq install python3.10 \
+    && apt-get -yq install python3.10 mariadb-server \
     && useradd -d /home/container -m container \
     && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
 
-RUN apt-get install mariadb-server -y
+RUN apt-get update && apt-get -yq upgrade

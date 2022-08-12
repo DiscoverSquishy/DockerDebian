@@ -159,6 +159,28 @@ jobs:
 
         - uses: hadolint/hadolint-action@v1.6.0
           with:
-            dockerfile: ./java/8/corretto/Dockerfile
+            dockerfile: ./java/17/corretto/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
+  Java-18-Temurin:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./java/18/temurin/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
+  Java-18-Corretto:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./java/18/corretto/Dockerfile
             ignore: DL3018
             failure-threshold: error
