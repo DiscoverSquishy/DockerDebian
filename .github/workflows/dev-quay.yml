@@ -110,6 +110,19 @@ jobs:
           docker push quay.io/discoversquishy/dockerimages-dev:java17-temurin-dev
           docker logout > /dev/null 2>&1
 
+  Java-18-Temurin:
+    runs-on: ubuntu-latest
+    needs: Ubuntu-Base
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Push Java 18 Temurin
+        working-directory: ./java/18/temurin/
+        run: |
+          ${{ secrets.QUAY_LOGIN }}
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:java18-temurin-dev
+          docker push quay.io/discoversquishy/dockerimages-dev:java18-temurin-dev
+          docker logout > /dev/null 2>&1
   ## Amazon Corretto Building
 
   Java-8-Corretto:
@@ -168,6 +181,19 @@ jobs:
           docker push quay.io/discoversquishy/dockerimages-dev:java17-corretto-dev
           docker logout > /dev/null 2>&1
 
+  Java-18-Corretto:
+    runs-on: ubuntu-latest
+    needs: Alpine-Base
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Push Java 18 Corretto
+        working-directory: ./java/18/corretto/
+        run: |
+          ${{ secrets.QUAY_LOGIN }}
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:java18-corretto-dev
+          docker push quay.io/discoversquishy/dockerimages-dev:java18-corretto-dev
+          docker logout > /dev/null 2>&1
   ## Ubuntu NodeJS Building
   Node-Current-Ubuntu:
     runs-on: ubuntu-latest
