@@ -21,7 +21,7 @@ jobs:
         working-directory: ./base/alpine/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:alpine-base-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:alpine-base-dev --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages-dev:alpine-base-dev
           docker logout > /dev/null 2>&1
 
@@ -35,7 +35,7 @@ jobs:
         working-directory: ./base/ubuntu-rolling/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:ubuntu-rolling-base-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:ubuntu-rolling-base-dev --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages-dev:ubuntu-rolling-base-dev
           docker logout > /dev/null 2>&1
 
@@ -49,7 +49,7 @@ jobs:
         working-directory: ./base/ubuntu/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:ubuntu-base-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:ubuntu-base-dev --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages-dev:ubuntu-base-dev
           docker logout > /dev/null 2>&1
 
@@ -64,7 +64,7 @@ jobs:
         working-directory: ./java/8/temurin/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:java8-temurin-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:java8-temurin-dev --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages-dev:java8-temurin-dev
           docker logout > /dev/null 2>&1
 
@@ -78,7 +78,7 @@ jobs:
         working-directory: ./java/11/temurin/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:java11-temurin-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:java11-temurin-dev --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages-dev:java11-temurin-dev
           docker logout > /dev/null 2>&1
 
@@ -92,7 +92,7 @@ jobs:
         working-directory: ./java/16/temurin/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:java16-temurin-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:java16-temurin-dev --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages-dev:java16-temurin-dev
           docker logout > /dev/null 2>&1
 
@@ -106,7 +106,7 @@ jobs:
         working-directory: ./java/17/temurin/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:java17-temurin-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:java17-temurin-dev --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages-dev:java17-temurin-dev
           docker logout > /dev/null 2>&1
 
@@ -120,9 +120,10 @@ jobs:
         working-directory: ./java/18/temurin/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:java18-temurin-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:java18-temurin-dev --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages-dev:java18-temurin-dev
           docker logout > /dev/null 2>&1
+
   ## Amazon Corretto Building
 
   Java-8-Corretto:
@@ -135,7 +136,7 @@ jobs:
         working-directory: ./java/8/corretto/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:java8-corretto-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:java8-corretto-dev --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages-dev:java8-corretto-dev
           docker logout > /dev/null 2>&1
 
@@ -149,7 +150,7 @@ jobs:
         working-directory: ./java/11/corretto/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:java11-corretto-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:java11-corretto-dev --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages-dev:java11-corretto-dev
           docker logout > /dev/null 2>&1
 
@@ -163,7 +164,7 @@ jobs:
         working-directory: ./java/17/corretto/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:java16-corretto-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:java16-corretto-dev --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages-dev:java16-corretto-dev
           docker logout > /dev/null 2>&1
 
@@ -177,7 +178,7 @@ jobs:
         working-directory: ./java/17/corretto/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:java17-corretto-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:java17-corretto-dev --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages-dev:java17-corretto-dev
           docker logout > /dev/null 2>&1
 
@@ -191,9 +192,10 @@ jobs:
         working-directory: ./java/18/corretto/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:java18-corretto-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:java18-corretto-dev --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages-dev:java18-corretto-dev
           docker logout > /dev/null 2>&1
+
   ## Ubuntu NodeJS Building
   Node-Current-Ubuntu:
     runs-on: ubuntu-latest
@@ -205,7 +207,7 @@ jobs:
         working-directory: ./nodejs/ubuntu/current/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-current-ubuntu-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-current-ubuntu-dev --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages-dev:node-current-ubuntu-dev
           docker logout > /dev/null 2>&1
 
@@ -219,7 +221,7 @@ jobs:
         working-directory: ./nodejs/ubuntu/lts/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-lts-ubuntu-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-lts-ubuntu-dev --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages-dev:node-lts-ubuntu-dev
           docker logout > /dev/null 2>&1
 
@@ -233,7 +235,7 @@ jobs:
         working-directory: ./nodejs/ubuntu/16/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-16-ubuntu-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-16-ubuntu-dev --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages-dev:node-16-ubuntu-dev
           docker logout > /dev/null 2>&1
 
@@ -247,6 +249,6 @@ jobs:
         working-directory: ./nodejs/ubuntu/14/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-14-ubuntu-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-14-ubuntu-dev --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages-dev:node-14-ubuntu-dev
           docker logout > /dev/null 2>&1
