@@ -7,4 +7,4 @@ RUN apt-get update -y --no-install-recommends \
 && apt-get install -y curl wget ca-certificates openssl git tar sqlite3 fontconfig iproute2 tar --no-install-recommends \
 && useradd -d /home/container -m container
 
-RUN apt-get update && apt-get -yq dist-upgrade
+RUN apt-get update && apt-get -yq upgrade

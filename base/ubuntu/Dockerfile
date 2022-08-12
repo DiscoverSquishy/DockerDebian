@@ -13,4 +13,4 @@ RUN apt-get update -y --no-install-recommends \
     && useradd -d /home/container -m container \
     && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
 
-RUN apt-get update && apt-get -yq dist-upgrade
+RUN apt-get update && apt-get -yq upgrade
