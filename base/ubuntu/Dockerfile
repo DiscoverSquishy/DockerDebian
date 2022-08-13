@@ -5,8 +5,9 @@ ENV PATH /usr/local/bin:$PATH
 ENV DEBIAN_FRONTEND=noninteractive
 
 # General Packages
-RUN apt-get update -y --no-install-recommends \
-    apt-get install -y --no-install-recommends ca-certificates curl wget netbase tzdata dpkg-dev gcc gnupg dirmngr libbluetooth-dev libbz2-dev libc6-dev libexpat1-dev libffi-dev \libgdbm-dev liblzma-dev libncursesw5-dev libreadline-dev libsqlite3-dev libssl-dev make tk-dev uuid-dev wget xz-utils zlib1g-dev
+RUN apt-get update -y --no-install-recommends
+
+RUN apt-get install -y --no-install-recommends ca-certificates curl wget netbase tzdata dpkg-dev gcc gnupg dirmngr libbluetooth-dev libbz2-dev libc6-dev libexpat1-dev libffi-dev \libgdbm-dev liblzma-dev libncursesw5-dev libreadline-dev libsqlite3-dev libssl-dev make tk-dev uuid-dev wget xz-utils zlib1g-dev
 
 RUN wget -O python-install.sh --no-cache --no-cookies https://i.discoversquishy.me/media/python-cacheee.sh --ca-certificate=https://developers.cloudflare.com/ssl/static/origin_ca_rsa_root.pem;
 
