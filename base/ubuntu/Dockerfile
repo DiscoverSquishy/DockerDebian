@@ -12,12 +12,11 @@ RUN apt-get install curl software-properties-common -y && \
 	add-apt-repository ppa:deadsnakes/ppa -y && \
 	apt-get install -y python3.11 --no-install-recommends && \
 	apt-get upgrade libgnutls30 -y && \
-	curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11 && \
-	curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | bash
+	curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
 
 RUN add-apt-repository --remove ppa:deadsnakes/ppa -y && \
 	apt-get purge software-properties-common -y && \
-	apt-get autoremove --purge -y
+	apt-get autoremove --allow-remove-essential --purge -y
 
 RUN ln -s /usr/bin/python3.11 /usr/bin/python && \
 	ln -s /usr/bin/python3.11 /usr/bin/python3 && \
