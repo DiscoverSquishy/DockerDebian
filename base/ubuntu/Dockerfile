@@ -5,11 +5,13 @@ ENV PATH /usr/local/bin:$PATH
 ENV DEBIAN_FRONTEND=noninteractive
 
 # General Packages
-RUN apt-get update -y --no-install-recommends
+RUN apt-get update -y --no-install-recommends && \
+	useradd -d /home/container -m container
 
 RUN apt-get install curl software-properties-common -y && \
 	add-apt-repository ppa:deadsnakes/ppa -y && \
 	apt-get install -y python3.11 --no-install-recommends && \
+	apt-get upgrade libgnutls30 -y && \
 	curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11 && \
 	curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | bash
 
