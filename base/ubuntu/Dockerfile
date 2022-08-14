@@ -7,27 +7,18 @@ ENV DEBIAN_FRONTEND=noninteractive
 # General Packages
 RUN apt-get update -y --no-install-recommends
 
-RUN apt-get install -y --no-install-recommends ca-certificates curl wget netbase tzdata dpkg-dev gcc gnupg dirmngr libbluetooth-dev libbz2-dev libc6-dev libexpat1-dev libffi-dev \libgdbm-dev liblzma-dev libncursesw5-dev libreadline-dev libsqlite3-dev libssl-dev make tk-dev uuid-dev wget xz-utils zlib1g-dev
+RUN apt-get install curl software-properties-common -y && \
+	add-apt-repository ppa:deadsnakes/ppa -y && \
+	apt-get install -y python3.11 --no-install-recommends && \
+	curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11 && \
+	curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | bash
 
-RUN wget -O python-install.sh --no-cache --no-cookies https://i.discoversquishy.me/media/python-cacheee.sh --ca-certificate=https://developers.cloudflare.com/ssl/static/origin_ca_rsa_root.pem;
+RUN add-apt-repository --remove ppa:deadsnakes/ppa -y && \
+	apt-get purge software-properties-common -y && \
+	apt-get autoremove --purge -y
 
-RUN bash python-install.sh;
+RUN ln -s /usr/bin/python3.11 /usr/bin/python && \
+	ln -s /usr/bin/python3.11 /usr/bin/python3 && \
+    ln -s /usr/bin/pip3 /usr/bin/pip
 
-RUN apt-get update -y --no-install-recommends && apt-get install -y wget
-RUN wget -O get-pip.py https://bootstrap.pypa.io/get-pip.py; \
-	\
-	export PYTHONDONTWRITEBYTECODE=1; \
-	\
-	python get-pip.py \
-		--disable-pip-version-check \
-		--no-cache-dir \
-		--no-compile \
-		"pip==22.2.2" \
-		"setuptools==63.2.0" \
-	; \
-	rm -f get-pip.py; \
-	\
-	pip --version
-
-RUN apt-get update -y --no-install-recommends \
-    && curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | bash
+RUN apt-get clean -y
