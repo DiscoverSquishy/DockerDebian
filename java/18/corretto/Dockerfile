@@ -1,19 +1,15 @@
-FROM quay.io/discoversquishy/dockerimages:alpine-base
+FROM quay.io/discoversquishy/dockerimages:ubuntu-rolling-base
 
 LABEL software="Java-Corretto" version="Java-18" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
-RUN  wget -O /etc/apk/keys/amazoncorretto.rsa.pub  https://apk.corretto.aws/amazoncorretto.rsa.pub \
-    && echo "https://apk.corretto.aws/" >> /etc/apk/repositories \
-    && apk update
-
-RUN apk add amazon-corretto-18
-
-# Package cleanup
-RUN rm -rf /var/cache/apk/*
+RUN apt-get update && apt-get install java-common
+RUN curl -LO https://corretto.aws/downloads/latest/amazon-corretto-18-x64-linux-jdk.deb && \
+    dpkg --install amazon-corretto-18-x64-linux-jdk.deb && \
+    rm amazon-corretto-18-x64-linux-jdk.deb
 
 USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container
 
 COPY ./entrypoint.sh /entrypoint.sh
-CMD ["/bin/ash", "/entrypoint.sh"]
+CMD ["/bin/bash", "/entrypoint.sh"]
