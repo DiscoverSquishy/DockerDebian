@@ -197,32 +197,32 @@ jobs:
           docker logout > /dev/null 2>&1
 
   ## Ubuntu NodeJS Building
-  Node-Current-Ubuntu:
+  Node-12-Ubuntu:
     runs-on: ubuntu-latest
     needs: Ubuntu-Rolling-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Push Node-Current Ubuntu
-        working-directory: ./nodejs/ubuntu/current/
+      - name: Push Node-12 Ubuntu
+        working-directory: ./nodejs/ubuntu/12/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-current-ubuntu-dev --pull --no-cache
-          docker push quay.io/discoversquishy/dockerimages-dev:node-current-ubuntu-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-12-ubuntu-dev --pull --no-cache
+          docker push quay.io/discoversquishy/dockerimages-dev:node-12-ubuntu-dev
           docker logout > /dev/null 2>&1
 
-  Node-LTS-Ubuntu:
+  Node-14-Ubuntu:
     runs-on: ubuntu-latest
     needs: Ubuntu-Rolling-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Push Node-LTS Ubuntu
-        working-directory: ./nodejs/ubuntu/lts/
+      - name: Push Node-14 Ubuntu
+        working-directory: ./nodejs/ubuntu/14/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-lts-ubuntu-dev --pull --no-cache
-          docker push quay.io/discoversquishy/dockerimages-dev:node-lts-ubuntu-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-14-ubuntu-dev --pull --no-cache
+          docker push quay.io/discoversquishy/dockerimages-dev:node-14-ubuntu-dev
           docker logout > /dev/null 2>&1
 
   Node-16-Ubuntu:
@@ -239,16 +239,16 @@ jobs:
           docker push quay.io/discoversquishy/dockerimages-dev:node-16-ubuntu-dev
           docker logout > /dev/null 2>&1
 
-  Node-14-Ubuntu:
+  Node-18-Ubuntu:
     runs-on: ubuntu-latest
     needs: Ubuntu-Rolling-Base
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Push Node-14 Ubuntu
-        working-directory: ./nodejs/ubuntu/14/
+      - name: Push Node-18 Ubuntu
+        working-directory: ./nodejs/ubuntu/18/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-14-ubuntu-dev --pull --no-cache
-          docker push quay.io/discoversquishy/dockerimages-dev:node-14-ubuntu-dev
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-18-ubuntu-dev --pull --no-cache
+          docker push quay.io/discoversquishy/dockerimages-dev:node-18-ubuntu-dev
           docker logout > /dev/null 2>&1

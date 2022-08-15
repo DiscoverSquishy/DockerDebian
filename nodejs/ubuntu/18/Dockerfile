@@ -1,7 +1,7 @@
 FROM quay.io/discoversquishy/dockerimages:ubuntu-rolling-base
 
-LABEL software="NodeJS" version="NJS-14" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
-ARG node_version=14.20.0
+LABEL software="NodeJS" version="NJS-18" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
+ARG node_version=18.7.0
 
 RUN cd /usr/local \
  && curl -o- https://nodejs.org/dist/v${node_version}/node-v${node_version}-linux-x64.tar.xz \

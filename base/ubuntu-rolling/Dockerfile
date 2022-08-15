@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -y --no-install-recommends \
     && useradd -d /home/container -m container
 
-RUN apt-get install curl software-properties-common -y && \
+RUN apt-get install curl software-properties-common ca-certificates xz-utils curl -y && \
 	add-apt-repository ppa:deadsnakes/ppa -y && \
 	apt-get install -y python3.11 --no-install-recommends && \
 	apt-get upgrade libgnutls30 apt libapt-pkg6.0 -y && \
