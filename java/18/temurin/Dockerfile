@@ -1,12 +1,22 @@
-FROM eclipse-temurin:18
+FROM quay.io/discoversquishy/dockerimages:ubuntu-base
 
 LABEL software="Java-Temurin" version="Java-18" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
-# General Packages
-RUN apt-get update -y --no-install-recommends \
-&& apt-get install -y curl wget ca-certificates openssl git tar sqlite3 fontconfig iproute2 tar --no-install-recommends \
-&& useradd -d /home/container -m container \
-&& apt-get clean && rm -rf /var/lib/apt/lists/*
+ENV JAVA_VERSION="18"
+
+RUN curl -LfsSo $HOME/temurin-download.sh https://i.discoversquishy.me/media/temurin-download.sh && \
+    bash $HOME/temurin-download.sh ${JAVA_VERSION} && \
+    rm $HOME/temurin-download.sh
+
+RUN mkdir -p /opt/java/openjdk; \
+    cd /opt/java/openjdk; \
+    tar -xf /tmp/openjdk.tar.gz --strip-components=1; \
+    rm -rf /tmp/openjdk.tar.gz;
+
+ENV JAVA_HOME=/opt/java/openjdk \
+    PATH="/opt/java/openjdk/bin:$PATH"
+
+RUN java -version
 
 # Environment Configuration
 USER container
