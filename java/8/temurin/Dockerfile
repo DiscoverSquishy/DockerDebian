@@ -2,33 +2,12 @@ FROM quay.io/discoversquishy/dockerimages:ubuntu-base
 
 LABEL software="Java-Temurin" version="Java-8" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
-ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
+ENV JAVA_VERSION="8"
 
-ENV JAVA_VERSION jdk8u322-b06
+COPY ./temurin-download.sh .
+RUN bash temurin-download.sh ${JAVA_VERSION} && rm -rf temurin-download.sh
 
-RUN set -eux; \
-    ARCH="$(dpkg --print-architecture)"; \
-    case "${ARCH}" in \
-       aarch64|arm64) \
-         ESUM='42ed3ff5a859f9015a1362fb7e650026b913d688eab471714f795651120be173'; \
-         BINARY_URL='https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u322-b06/OpenJDK8U-jdk_aarch64_linux_hotspot_8u322b06.tar.gz'; \
-         ;; \
-       ppc64el|powerpc:common64) \
-         ESUM='c7cc9c5b237e9e1f1e3296593aba427375823592e4604fadf89a8c234c2574e1'; \
-         BINARY_URL='https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u322-b06/OpenJDK8U-jdk_ppc64le_linux_hotspot_8u322b06.tar.gz'; \
-         ;; \
-       amd64|i386:x86-64) \
-         ESUM='3d62362a78c9412766471b05253507a4cfc212daea5cdf122860173ce902400e'; \
-         BINARY_URL='https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u322-b06/OpenJDK8U-jdk_x64_linux_hotspot_8u322b06.tar.gz'; \
-         ;; \
-       *) \
-         echo "Unsupported arch: ${ARCH}"; \
-         exit 1; \
-         ;; \
-    esac; \
-    curl -LfsSo /tmp/openjdk.tar.gz ${BINARY_URL}; \
-    echo "${ESUM} */tmp/openjdk.tar.gz" | sha256sum -c -; \
-    mkdir -p /opt/java/openjdk; \
+RUN mkdir -p /opt/java/openjdk; \
     cd /opt/java/openjdk; \
     tar -xf /tmp/openjdk.tar.gz --strip-components=1; \
     rm -rf /tmp/openjdk.tar.gz;
@@ -36,6 +15,7 @@ RUN set -eux; \
 ENV JAVA_HOME=/opt/java/openjdk \
     PATH="/opt/java/openjdk/bin:$PATH"
 
+RUN java -version
 # Environment Configuration
 USER container
 ENV USER=container HOME=/home/container
