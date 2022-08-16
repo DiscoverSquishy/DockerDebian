@@ -1,6 +1,6 @@
 FROM alpine:3.16.2
 
-LABEL author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
+LABEL os="Alpine" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
 RUN apk --no-cache add \
     "ca-certificates" \
