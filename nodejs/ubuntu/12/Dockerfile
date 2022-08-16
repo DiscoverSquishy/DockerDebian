@@ -1,4 +1,4 @@
-FROM quay.io/discoversquishy/dockerimages:ubuntu-rolling-base
+FROM quay.io/discoversquishy/dockerimages:ubuntu-base
 
 LABEL software="NodeJS" version="NJS-12" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 ARG node_version=12.22.12

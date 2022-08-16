@@ -1,4 +1,4 @@
-FROM quay.io/discoversquishy/dockerimages:ubuntu-rolling-base
+FROM quay.io/discoversquishy/dockerimages:ubuntu-base
 
 LABEL software="Java-Corretto" version="Java-11" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
