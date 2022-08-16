@@ -1,6 +1,6 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
-LABEL os="Ubuntu-20.04" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
+LABEL os="Ubuntu-22.04" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 ENV PATH /usr/local/bin:$PATH
 ENV DEBIAN_FRONTEND=noninteractive
 
