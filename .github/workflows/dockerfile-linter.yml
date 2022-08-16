@@ -30,6 +30,17 @@ jobs:
             dockerfile: ./base/ubuntu/Dockerfile
             ignore: DL3018
             failure-threshold: error
+  NodeJS-Ubuntu-12-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - uses: hadolint/hadolint-action@v1.6.0
+          with:
+            dockerfile: ./nodejs/ubuntu/12/Dockerfile
+            ignore: DL3018
+            failure-threshold: error
   NodeJS-Ubuntu-14-Lint:
       runs-on: ubuntu-latest
       steps:
@@ -52,7 +63,7 @@ jobs:
             dockerfile: ./nodejs/ubuntu/16/Dockerfile
             ignore: DL3018
             failure-threshold: error
-  NodeJS-Ubuntu-LTS-Lint:
+  NodeJS-Ubuntu-18-Lint:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
@@ -60,18 +71,7 @@ jobs:
 
         - uses: hadolint/hadolint-action@v1.6.0
           with:
-            dockerfile: ./nodejs/ubuntu/lts/Dockerfile
-            ignore: DL3018
-            failure-threshold: error
-  NodeJS-Ubuntu-Current-Lint:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-
-        - uses: hadolint/hadolint-action@v1.6.0
-          with:
-            dockerfile: ./nodejs/ubuntu/current/Dockerfile
+            dockerfile: ./nodejs/ubuntu/18/Dockerfile
             ignore: DL3018
             failure-threshold: error
   Java-8-Temurin:

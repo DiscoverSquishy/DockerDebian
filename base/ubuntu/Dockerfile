@@ -1,17 +1,17 @@
-FROM ubuntu:22.04
+FROM ubuntu:22.10
 
-LABEL os="Ubuntu-22.04" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
+LABEL os="Ubuntu" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 ENV PATH /usr/local/bin:$PATH
 ENV DEBIAN_FRONTEND=noninteractive
 
 # General Packages
-RUN apt-get update -y --no-install-recommends && \
-	useradd -d /home/container -m container
+RUN apt-get update -y --no-install-recommends \
+    && useradd -d /home/container -m container
 
-RUN apt-get install curl software-properties-common -y && \
+RUN apt-get install curl software-properties-common ca-certificates xz-utils curl -y && \
 	add-apt-repository ppa:deadsnakes/ppa -y && \
 	apt-get install -y python3.11 --no-install-recommends && \
-	apt-get upgrade libgnutls30 -y && \
+	apt-get upgrade libgnutls30 apt libapt-pkg6.0 -y && \
 	curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
 
 RUN add-apt-repository --remove ppa:deadsnakes/ppa -y && \
