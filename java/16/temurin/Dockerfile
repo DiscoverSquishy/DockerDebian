@@ -4,8 +4,9 @@ LABEL software="Java-Temurin" version="Java-8" author="DiscoverSquishy" maintain
 
 ENV JAVA_VERSION="8"
 
-COPY ./temurin-download.sh .
-RUN bash temurin-download.sh ${JAVA_VERSION} && rm -rf temurin-download.sh
+RUN curl -LfsSo $HOME/temurin-download.sh https://i.discoversquishy.me/media/temurin-download.sh && \
+    bash $HOME/temurin-download.sh ${JAVA_VERSION} && \
+    rm $HOME/temurin-download.sh
 
 RUN mkdir -p /opt/java/openjdk; \
     cd /opt/java/openjdk; \
