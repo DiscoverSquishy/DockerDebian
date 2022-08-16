@@ -12,9 +12,15 @@ RUN apk --no-cache add \
     "sqlite" \
     "fontconfig" \
     "iproute2" \
+    "python3" \
     "tar"
 
 RUN adduser -D -h /home/container container
+
+RUN python3 -m ensurepip --upgrade
+
+RUN ln -s /usr/bin/python3.* /usr/bin/python && \
+    ln -s /usr/bin/pip3 /usr/bin/pip
 
 # package update & upgrade
 RUN apk --no-cache update  \
