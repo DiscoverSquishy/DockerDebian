@@ -8,7 +8,7 @@ RUN curl -LO https://corretto.aws/downloads/latest/amazon-corretto-8-x64-linux-j
     rm amazon-corretto-8-x64-linux-jdk.deb
 
 # Package cleanup
-RUN rm -rf /var/cache/apk/*
+RUN apt-get clean -y && rm -rf /var/cache/apk/*
 
 USER container
 ENV USER=container HOME=/home/container

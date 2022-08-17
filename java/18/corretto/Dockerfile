@@ -7,6 +7,9 @@ RUN curl -LO https://corretto.aws/downloads/latest/amazon-corretto-18-x64-linux-
     dpkg --install amazon-corretto-18-x64-linux-jdk.deb && \
     rm amazon-corretto-18-x64-linux-jdk.deb
 
+# Package cleanup
+RUN apt-get clean -y && rm -rf /var/cache/apk/*
+
 USER container
 ENV USER=container HOME=/home/container
 WORKDIR /home/container
