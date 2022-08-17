@@ -9,7 +9,7 @@ RUN curl -LfsSo $HOME/temurin-download.sh https://i.discoversquishy.me/scripts/t
     rm $HOME/temurin-download.sh
 
 RUN mkdir -p /opt/java/openjdk; \
-    cd /opt/java/openjdk; \
+    cd /opt/java/openjdk || exit; \
     tar -xf /tmp/openjdk.tar.gz --strip-components=1; \
     rm -rf /tmp/openjdk.tar.gz;
 
