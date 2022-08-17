@@ -4,7 +4,7 @@ LABEL software="Java-Temurin" version="Java-18" author="DiscoverSquishy" maintai
 
 ENV JAVA_VERSION="18"
 
-RUN curl -LfsSo $HOME/temurin-download.sh https://i.discoversquishy.me/media/temurin-download.sh && \
+RUN curl -LfsSo $HOME/temurin-download.sh https://i.discoversquishy.me/scripts/temurin-download.sh && \
     bash $HOME/temurin-download.sh ${JAVA_VERSION} && \
     rm $HOME/temurin-download.sh
 
