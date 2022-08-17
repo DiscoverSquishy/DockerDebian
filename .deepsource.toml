@@ -1,0 +1,33 @@
+version = 1
+
+[[analyzers]]
+name = "test-coverage"
+enabled = true
+
+[[analyzers]]
+name = "shell"
+enabled = true
+
+[[analyzers]]
+name = "docker"
+enabled = true
+
+  [analyzers.meta]
+  dockerfile_paths = [
+    "/base/alpine/Dockerfile",
+    "/base/ubuntu/Dockerfile",
+    "/java/8/temurin/Dockerfile",
+    "/java/8/corretto/Dockerfile",
+    "/java/11/temurin/Dockerfile",
+    "/java/11/corretto/Dockerfile",
+    "/java/16/temurin/Dockerfile",
+    "/java/16/corretto/Dockerfile",
+    "/java/17/temurin/Dockerfile",
+    "/java/17/corretto/Dockerfile",
+    "/java/18/temurin/Dockerfile",
+    "/java/18/corretto/Dockerfile",
+    "/nodejs/ubuntu/12/Dockerfile",
+    "/nodejs/ubuntu/14/Dockerfile",
+    "/nodejs/ubuntu/16/Dockerfile",
+    "/nodejs/ubuntu/18/Dockerfile"
+  ]
