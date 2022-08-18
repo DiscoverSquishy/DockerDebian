@@ -11,7 +11,6 @@ RUN apt-get update -y --no-install-recommends \
 RUN apt-get install curl software-properties-common ca-certificates xz-utils curl -y && \
 	add-apt-repository ppa:deadsnakes/ppa -y && \
 	apt-get install -y python3.11 --no-install-recommends && \
-	apt-get upgrade libgnutls30 apt libapt-pkg6.0 -y && \
 	curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
 
 RUN add-apt-repository --remove ppa:deadsnakes/ppa -y && \
