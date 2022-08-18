@@ -4,12 +4,13 @@ LABEL software="Java-Temurin" version="Java-17" author="DiscoverSquishy" maintai
 
 ENV JAVA_VERSION="17"
 
-RUN curl -LfsSo $HOME/temurin-download.sh https://i.discoversquishy.me/scripts/temurin-download.sh && \
+RUN curl -LfsSo "$HOME/temurin-download.sh" "https://i.discoversquishy.me/scripts/temurin-download.sh" && \
     bash $HOME/temurin-download.sh ${JAVA_VERSION} && \
     rm $HOME/temurin-download.sh
 
+WORKDIR /opt/java/openjdk
+
 RUN mkdir -p /opt/java/openjdk; \
-    cd /opt/java/openjdk || exit; \
     tar -xf /tmp/openjdk.tar.gz --strip-components=1; \
     rm -rf /tmp/openjdk.tar.gz;
 
