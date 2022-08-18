@@ -2,9 +2,9 @@
 
 JAVA_VERSION=${1}
 
-aarch64=$(curl -s "https://api.github.com/repos/adoptium/temurin"$JAVA_VERSION"-binaries/releases/latest" | grep -wo 'https.*' | grep -m1 'OpenJDK'$JAVA_VERSION'U-jdk_aarch64_linux_hotspot' | sed '/^$/d' | sed 's/"//g')
-ppc64el=$(curl -s "https://api.github.com/repos/adoptium/temurin"$JAVA_VERSION"-binaries/releases/latest" | grep -wo 'https.*' | grep -m1 'OpenJDK'$JAVA_VERSION'U-jdk_ppc64le_linux_hotspot' | sed '/^$/d' | sed 's/"//g')
-amd64=$(curl -s "https://api.github.com/repos/adoptium/temurin"$JAVA_VERSION"-binaries/releases/latest" | grep -wo 'https.*' | grep -m1 'OpenJDK'$JAVA_VERSION'U-jdk_x64_linux_hotspot' | sed '/^$/d' | sed 's/"//g')
+aarch64=$(curl -s https://api.github.com/repos/adoptium/temurin"$JAVA_VERSION"-binaries/releases/latest | grep -wo 'https.*' | grep -m1 'OpenJDK'$JAVA_VERSION'U-jdk_aarch64_linux_hotspot' | sed '/^$/d' | sed 's/"//g')
+ppc64el=$(curl -s https://api.github.com/repos/adoptium/temurin"$JAVA_VERSION"-binaries/releases/latest | grep -wo 'https.*' | grep -m1 'OpenJDK'$JAVA_VERSION'U-jdk_ppc64le_linux_hotspot' | sed '/^$/d' | sed 's/"//g')
+amd64=$(curl -s https://api.github.com/repos/adoptium/temurin"$JAVA_VERSION"-binaries/releases/latest | grep -wo 'https.*' | grep -m1 'OpenJDK'$JAVA_VERSION'U-jdk_x64_linux_hotspot' | sed '/^$/d' | sed 's/"//g')
 
 
 ARCH="$(dpkg --print-architecture)"; \
