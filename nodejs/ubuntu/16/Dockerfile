@@ -3,8 +3,8 @@ FROM quay.io/discoversquishy/dockerimages:ubuntu-base
 LABEL software="NodeJS" version="NJS-16" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 ARG node_version=16.16.0
 
-RUN cd /usr/local \
- && curl -o- https://nodejs.org/dist/v${node_version}/node-v${node_version}-linux-x64.tar.xz \
+WORKDIR /usr/local
+RUN curl -o- https://nodejs.org/dist/v${node_version}/node-v${node_version}-linux-x64.tar.xz \
   | tar xJf - --strip 1 && \
   npm install -g npm@latest
 
