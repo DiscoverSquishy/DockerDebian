@@ -4,6 +4,7 @@ LABEL software="NodeJS" version="NJS-16" author="DiscoverSquishy" maintainer="no
 ARG node_version=16.16.0
 
 WORKDIR /usr/local
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN curl -o- https://nodejs.org/dist/v${node_version}/node-v${node_version}-linux-x64.tar.xz \
   | tar xJf - --strip 1 && \
   npm install -g npm@latest
