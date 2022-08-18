@@ -2,7 +2,7 @@ FROM quay.io/discoversquishy/dockerimages:ubuntu-base
 
 LABEL software="Java-Corretto" version="Java-17" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
-RUN apt-get update && apt-get install java-common --no-install-recommends && \
+RUN apt-get update && apt-get install --no-install-recommends -y java-common && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 

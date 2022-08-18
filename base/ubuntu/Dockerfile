@@ -12,6 +12,7 @@ RUN apt-get update -y && \
 	useradd -d /home/container -m container
 
 # Python Installation
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN add-apt-repository ppa:deadsnakes/ppa -y && \
 	apt-get install -y python3.11 --no-install-recommends && \
 	curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
