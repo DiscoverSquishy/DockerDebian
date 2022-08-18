@@ -7,9 +7,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 # General Packages
 RUN apt-get update -y && \
 	apt-get install -y --no-install-recommends curl software-properties-common ca-certificates xz-utils curl && \
-	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/* \
-    && useradd -d /home/container -m container
+	apt-get clean && \
+	rm -rf /var/lib/apt/lists/* && \
+    useradd -d /home/container -m container
 
 RUN add-apt-repository ppa:deadsnakes/ppa -y && \
 	apt-get install -y python3.11 --no-install-recommends && \
