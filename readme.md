@@ -1,6 +1,8 @@
 
 # Squishy's Docker Images
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/3b59e46db23742c4b69c35b8367cbcc5)](https://www.codacy.com/gh/DiscoverSquishy/DockerImages/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DiscoverSquishy/DockerImages&amp;utm_campaign=Badge_Grade)  [![DeepSource](https://deepsource.io/gh/DiscoverSquishy/DockerImages.svg/?label=active+issues&show_trend=true&token=YJGmAatvGQXpvgyjoo3jYX_7)](https://deepsource.io/gh/DiscoverSquishy/DockerImages/?ref=repository-badge)
+
 This is where I will mostly be creating images I would be using here and there.
 
 ## How to use

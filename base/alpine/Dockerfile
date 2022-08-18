@@ -17,14 +17,10 @@ RUN apk --no-cache add \
 
 RUN adduser -D -h /home/container container
 
+# Pip Installation & Symlink Creation
 RUN python3 -m ensurepip --upgrade
-
 RUN ln -s /usr/bin/python3.* /usr/bin/python && \
     ln -s /usr/bin/pip3 /usr/bin/pip
-
-# package update & upgrade
-RUN apk --no-cache update  \
-    apk --no-cache upgrade
 
 # Package cleanup
 RUN rm -rf /var/cache/apk/*
