@@ -1,7 +1,6 @@
 FROM alpine:3.16.2
 
 LABEL os="Alpine" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
-
 RUN apk --no-cache add \
     "ca-certificates" \
     "curl" \
@@ -9,6 +8,8 @@ RUN apk --no-cache add \
     "openssl" \
     "git" \
     "tar" \
+    "jq" \
+    "tzdata" \
     "sqlite" \
     "fontconfig" \
     "iproute2" \
