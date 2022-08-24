@@ -15,6 +15,9 @@ ARCH="$(dpkg --print-architecture)"; \
       ;; \
     armhf|arm) \
       BINARY_URL="$arm"; \
+      apt-get update && \
+      apt-get install -y --no-install-recommends libatomic1 && \
+      rm -rf /var/lib/apt/lists/* \
       ;; \
     ppc64el|powerpc:common64) \
       BINARY_URL="$ppc64el"; \
