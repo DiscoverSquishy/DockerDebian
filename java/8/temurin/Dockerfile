@@ -5,8 +5,8 @@ LABEL software="Java-Temurin" version="Java-8" author="DiscoverSquishy" maintain
 ENV JAVA_VERSION="8"
 
 WORKDIR /opt/java/openjdk
-RUN curl -L -o "temurin-download.sh" "https://nocache.discoversquishy.me/dockerimages/scripts/temurin-download.sh" && \
-    bash temurin-download.sh ${JAVA_VERSION} && \
+RUN curl -L -o "temurin-download.sh" "https://nocache.discoversquishy.me/scripts/temurin-download.sh" && \
+    bash temurin-download.sh "${JAVA_VERSION}" && \
     rm temurin-download.sh
 
 RUN tar -xf /tmp/openjdk.tar.gz --strip-components=1; \

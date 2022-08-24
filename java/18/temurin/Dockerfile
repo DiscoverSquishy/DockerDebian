@@ -5,13 +5,14 @@ LABEL software="Java-Temurin" version="Java-18" author="DiscoverSquishy" maintai
 ENV JAVA_VERSION="18"
 
 WORKDIR /opt/java/openjdk
-RUN curl -L -o "temurin-download.sh" "https://nocache.discoversquishy.me/dockerimages/scripts/temurin-download.sh" && \
-    bash temurin-download.sh ${JAVA_VERSION} && \
+RUN curl -L -o "temurin-download.sh" "https://nocache.discoversquishy.me/scripts/temurin-download.sh" && \
+    bash temurin-download.sh "${JAVA_VERSION}" && \
     rm temurin-download.sh
 
 RUN tar -xf /tmp/openjdk.tar.gz --strip-components=1; \
     rm -rf /tmp/openjdk.tar.gz;
 
+SHELL ["/bin/sh", "-c"]
 ENV JAVA_HOME=/opt/java/openjdk \
     PATH="/opt/java/openjdk/bin:$PATH"
 
