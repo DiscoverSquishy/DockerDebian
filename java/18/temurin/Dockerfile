@@ -12,7 +12,6 @@ RUN curl -L -o "temurin-download.sh" "https://nocache.discoversquishy.me/scripts
 RUN tar -xf /tmp/openjdk.tar.gz --strip-components=1; \
     rm -rf /tmp/openjdk.tar.gz;
 
-SHELL ["/bin/sh", "-c"]
 ENV JAVA_HOME=/opt/java/openjdk \
     PATH="/opt/java/openjdk/bin:$PATH"
 
