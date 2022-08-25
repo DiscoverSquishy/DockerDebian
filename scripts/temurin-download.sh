@@ -7,11 +7,11 @@ JAVA_VERSION=${1}
 ARCH="$(dpkg --print-architecture)"
 
 output(){
-    echo -e '\e[95m'$1'\e[0m';
+    echo -e '\e[95m'"$1"'\e[0m';
 }
 
 bad_output(){
-    echo -e '\e[91m'$1'\e[0m';
+    echo -e '\e[91m'"$1"'\e[0m';
 }
 
 aarch64=$(curl -s "https://api.github.com/repos/adoptium/temurin$JAVA_VERSION-binaries/releases/latest" | grep -wo 'https.*' | grep -m1 "OpenJDK""$JAVA_VERSION""U-jdk_aarch64_linux_hotspot" | sed 's/.$//')
