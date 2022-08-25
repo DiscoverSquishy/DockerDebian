@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # General Packages
 RUN apt-get update -y && \
-	apt-get install --no-install-recommends -y curl gnupg software-properties-common ca-certificates xz-utils && \
+	apt-get install --no-install-recommends -y curl ca-certificates openssl git tar sqlite fontconfig tzdata iproute2 gnupg software-properties-common xz-utils && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/* && \
 	useradd -d /home/container -m container

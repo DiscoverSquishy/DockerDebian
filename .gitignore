@@ -1,1 +1,13 @@
 .vscode/sftp.json
+
+
+Java 8 Temurin|quay.io/discoversquishy/dockerimages:java8-temurin
+Java 11 Temurin|quay.io/discoversquishy/dockerimages:java11-temurin
+Java 16 Temurin|quay.io/discoversquishy/dockerimages:java16-temurin
+Java 17 Temurin|quay.io/discoversquishy/dockerimages:java17-temurin
+Java 18 Temurin|quay.io/discoversquishy/dockerimages:java18-temurin
+Java 8 Corretto|quay.io/discoversquishy/dockerimages:java8-corretto
+Java 11 Corretto|quay.io/discoversquishy/dockerimages:java11-corretto
+Java 16 Corretto|quay.io/discoversquishy/dockerimages:java16-corretto
+Java 17 Corretto|quay.io/discoversquishy/dockerimages:java17-corretto
+Java 18 Corretto|quay.io/discoversquishy/dockerimages:java18-corretto
