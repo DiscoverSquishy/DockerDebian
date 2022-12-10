@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Push Alpine Base
         working-directory: ./base/alpine/
         run: |
@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Push Ubuntu Base
         working-directory: ./base/ubuntu/
         run: |
@@ -34,13 +34,27 @@ jobs:
           docker push quay.io/discoversquishy/dockerimages:ubuntu-base
           docker logout > /dev/null 2>&1
 
+  # Ubuntu Base Building
+  Ubuntu-Python-Base:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Push Ubuntu Python Base
+        working-directory: ./base/ubuntu-python/
+        run: |
+          ${{ secrets.QUAY_LOGIN }}
+          docker build . -t quay.io/discoversquishy/dockerimages:ubuntu-python-base --pull --no-cache
+          docker push quay.io/discoversquishy/dockerimages:ubuntu-python-base
+          docker logout > /dev/null 2>&1
+
   ## Eclipse Temurin Building
   Java-8-Temurin:
     runs-on: ubuntu-latest
     needs: Ubuntu-Base
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Push Java 8 Temurin
         working-directory: ./java/8/temurin/
         run: |
@@ -54,7 +68,7 @@ jobs:
     needs: Ubuntu-Base
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Push Java 11 Temurin
         working-directory: ./java/11/temurin/
         run: |
@@ -68,7 +82,7 @@ jobs:
     needs: Ubuntu-Base
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Push Java 16 Temurin
         working-directory: ./java/16/temurin/
         run: |
@@ -82,7 +96,7 @@ jobs:
     needs: Ubuntu-Base
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Push Java 17 Temurin
         working-directory: ./java/17/temurin/
         run: |
@@ -96,7 +110,7 @@ jobs:
     needs: Ubuntu-Base
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Push Java 18 Temurin
         working-directory: ./java/18/temurin/
         run: |
@@ -111,7 +125,7 @@ jobs:
     needs: Alpine-Base
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Push Java 8 Corretto
         working-directory: ./java/8/corretto/
         run: |
@@ -125,7 +139,7 @@ jobs:
     needs: Alpine-Base
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Push Java 11 Corretto
         working-directory: ./java/11/corretto/
         run: |
@@ -139,7 +153,7 @@ jobs:
     needs: Alpine-Base
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Push Java 16 Corretto
         working-directory: ./java/17/corretto/
         run: |
@@ -153,7 +167,7 @@ jobs:
     needs: Alpine-Base
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Push Java 17 Corretto
         working-directory: ./java/17/corretto/
         run: |
@@ -167,7 +181,7 @@ jobs:
     needs: Alpine-Base
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Push Java 17 Corretto
         working-directory: ./java/18/corretto/
         run: |
@@ -179,10 +193,10 @@ jobs:
   ## Ubuntu NodeJS Building
   Node-12-Ubuntu:
     runs-on: ubuntu-latest
-    needs: Ubuntu-Base
+    needs: Ubuntu-Python-Base
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Push Node-12 Ubuntu
         working-directory: ./nodejs/ubuntu/12/
         run: |
@@ -193,10 +207,10 @@ jobs:
 
   Node-14-Ubuntu:
     runs-on: ubuntu-latest
-    needs: Ubuntu-Base
+    needs: Ubuntu-Python-Base
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Push Node-14 Ubuntu
         working-directory: ./nodejs/ubuntu/14/
         run: |
@@ -207,10 +221,10 @@ jobs:
 
   Node-16-Ubuntu:
     runs-on: ubuntu-latest
-    needs: Ubuntu-Base
+    needs: Ubuntu-Python-Base
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Push Node-16 Ubuntu
         working-directory: ./nodejs/ubuntu/16/
         run: |
@@ -221,10 +235,10 @@ jobs:
 
   Node-18-Ubuntu:
     runs-on: ubuntu-latest
-    needs: Ubuntu-Base
+    needs: Ubuntu-Python-Base
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Push Node-18 Ubuntu
         working-directory: ./nodejs/ubuntu/18/
         run: |
