@@ -30,5 +30,4 @@ RUN apt-get purge software-properties-common -y && \
 
 # # Symlink Creation
 RUN ln -s /usr/bin/python3.11 /usr/bin/python && \
-    ln -s /usr/bin/python3.11 /usr/bin/python3 && \
     ln -s /usr/bin/pip3 /usr/bin/pip
