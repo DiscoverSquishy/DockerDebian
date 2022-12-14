@@ -13,19 +13,22 @@ RUN apt-get update -y && \
 
 # Python Installation
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-RUN cd ~ && \
-    curl -L -o "v3.11.1.tar.gz" "https://github.com/python/cpython/archive/refs/tags/v3.11.1.tar.gz" && \
-    tar xzf v3.11.1.tar.gz && \
-    cd cpython-3.11.1 && \
-    ./configure --enable-optimizations && \
+
+WORKDIR /~
+
+RUN curl -L -o "v3.11.1.tar.gz" "https://github.com/python/cpython/archive/refs/tags/v3.11.1.tar.gz" && \
+    tar xzf v3.11.1.tar.gz
+
+WORKDIR /cpython-3.11.1
+
+RUN ./configure --enable-optimizations && \
     make -s && \
     make altinstall
 
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
 
 # Remove Useless Packages
-RUN apt-get purge software-properties-common python3-cryptography -y && \
-    apt-get autoremove --allow-remove-essential --purge -y && \
+RUN apt-get autoremove --allow-remove-essential --purge -y && \
     python3 --version && \
     pip3 --version
 
