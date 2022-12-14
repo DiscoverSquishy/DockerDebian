@@ -13,13 +13,14 @@ RUN apt-get update -y && \
 
 # Python Installation
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-RUN cd ~ && \
-    wget https://github.com/python/cpython/archive/refs/tags/v3.11.1.tar.gz && \
-    tar xzf v3.11.1.tar.gz && \
-    cd cpython-3.11.1 && \
-    ./configure --enable-optimizations && \
+WORKDIR /~/
+RUN curl -LJO "https://github.com/python/cpython/archive/refs/tags/v3.11.1.tar.gz" && \
+    tar -xvzf cpython-3.11.1.tar.gz
+WORKDIR /~/cpython-3.11.1
+RUN ./configure --enable-optimizations && \
     make -s && \
-    make altinstall
+    make altinstall && \
+    rm -rf ~/cpython-3.11.1*
 
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
 
