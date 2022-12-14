@@ -12,9 +12,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
-        - uses: hadolint/hadolint-action@v1.6.0
+        - uses: hadolint/hadolint-action@v3.0.0
           with:
             dockerfile: ./base/alpine/Dockerfile
             ignore: DL3018 DL3059 DL3008
@@ -23,9 +23,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
-        - uses: hadolint/hadolint-action@v1.6.0
+        - uses: hadolint/hadolint-action@v3.0.0
           with:
             dockerfile: ./base/ubuntu/Dockerfile
             ignore: DL3018 DL3059 DL3008
@@ -34,9 +34,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
-        - uses: hadolint/hadolint-action@v1.6.0
+        - uses: hadolint/hadolint-action@v3.0.0
           with:
             dockerfile: ./nodejs/ubuntu/12/Dockerfile
             ignore: DL3018 DL3059 DL3008
@@ -45,9 +45,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
-        - uses: hadolint/hadolint-action@v1.6.0
+        - uses: hadolint/hadolint-action@v3.0.0
           with:
             dockerfile: ./nodejs/ubuntu/14/Dockerfile
             ignore: DL3018 DL3059 DL3008
@@ -56,9 +56,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
-        - uses: hadolint/hadolint-action@v1.6.0
+        - uses: hadolint/hadolint-action@v3.0.0
           with:
             dockerfile: ./nodejs/ubuntu/16/Dockerfile
             ignore: DL3018 DL3059 DL3008
@@ -67,20 +67,30 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
-        - uses: hadolint/hadolint-action@v1.6.0
+        - uses: hadolint/hadolint-action@v3.0.0
           with:
             dockerfile: ./nodejs/ubuntu/18/Dockerfile
+            ignore: DL3018 DL3059 DL3008
+  NodeJS-Ubuntu-19-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+
+        - uses: hadolint/hadolint-action@v3.0.0
+          with:
+            dockerfile: ./nodejs/ubuntu/19/Dockerfile
             ignore: DL3018 DL3059 DL3008
             failure-threshold: error
   Java-8-Temurin:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
-        - uses: hadolint/hadolint-action@v1.6.0
+        - uses: hadolint/hadolint-action@v3.0.0
           with:
             dockerfile: ./java/8/temurin/Dockerfile
             ignore: DL3018 DL3059 DL3008
@@ -89,9 +99,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
-        - uses: hadolint/hadolint-action@v1.6.0
+        - uses: hadolint/hadolint-action@v3.0.0
           with:
             dockerfile: ./java/8/corretto/Dockerfile
             ignore: DL3018 DL3059 DL3008
@@ -100,9 +110,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
-        - uses: hadolint/hadolint-action@v1.6.0
+        - uses: hadolint/hadolint-action@v3.0.0
           with:
             dockerfile: ./java/11/temurin/Dockerfile
             ignore: DL3018 DL3059 DL3008
@@ -111,9 +121,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
-        - uses: hadolint/hadolint-action@v1.6.0
+        - uses: hadolint/hadolint-action@v3.0.0
           with:
             dockerfile: ./java/11/corretto/Dockerfile
             ignore: DL3018 DL3059 DL3008
@@ -122,9 +132,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
-        - uses: hadolint/hadolint-action@v1.6.0
+        - uses: hadolint/hadolint-action@v3.0.0
           with:
             dockerfile: ./java/16/temurin/Dockerfile
             ignore: DL3018 DL3059 DL3008
@@ -133,9 +143,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
-        - uses: hadolint/hadolint-action@v1.6.0
+        - uses: hadolint/hadolint-action@v3.0.0
           with:
             dockerfile: ./java/16/corretto/Dockerfile
             ignore: DL3018 DL3059 DL3008
@@ -144,9 +154,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
-        - uses: hadolint/hadolint-action@v1.6.0
+        - uses: hadolint/hadolint-action@v3.0.0
           with:
             dockerfile: ./java/17/temurin/Dockerfile
             ignore: DL3018 DL3059 DL3008
@@ -155,9 +165,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
-        - uses: hadolint/hadolint-action@v1.6.0
+        - uses: hadolint/hadolint-action@v3.0.0
           with:
             dockerfile: ./java/17/corretto/Dockerfile
             ignore: DL3018 DL3059 DL3008
@@ -166,9 +176,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
-        - uses: hadolint/hadolint-action@v1.6.0
+        - uses: hadolint/hadolint-action@v3.0.0
           with:
             dockerfile: ./java/18/temurin/Dockerfile
             ignore: DL3018 DL3059 DL3008
@@ -177,9 +187,9 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Checkout
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
-        - uses: hadolint/hadolint-action@v1.6.0
+        - uses: hadolint/hadolint-action@v3.0.0
           with:
             dockerfile: ./java/18/corretto/Dockerfile
             ignore: DL3018 DL3059 DL3008
