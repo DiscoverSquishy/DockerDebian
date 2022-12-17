@@ -26,6 +26,7 @@ I'll write more use cases as I go...
 |Java 16 Temurin|`quay.io/discoversquishy/dockerimages:java16-temurin`|Maintained|
 |Java 17 Temurin|`quay.io/discoversquishy/dockerimages:java17-temurin`|Maintained|
 |Java 18 Temurin|`quay.io/discoversquishy/dockerimages:java18-temurin`|Maintained|
+|Java 19 Temurin|`quay.io/discoversquishy/dockerimages:java19-temurin`|Maintained|
 
 ### Java Corretto Images
 
@@ -36,6 +37,7 @@ I'll write more use cases as I go...
 |Java 16 Corretto|`quay.io/discoversquishy/dockerimages:java16-corretto`|Maintained|
 |Java 17 Corretto|`quay.io/discoversquishy/dockerimages:java17-corretto`|Maintained|
 |Java 18 Corretto|`quay.io/discoversquishy/dockerimages:java18-corretto`|Maintained|
+|Java 18 Corretto|`quay.io/discoversquishy/dockerimages:java19-corretto`|Maintained|
 
 ### NodeJS Images
 
@@ -44,4 +46,5 @@ I'll write more use cases as I go...
 |NodeJS 12|`quay.io/discoversquishy/dockerimages:node-12-ubuntu`|Maintained|
 |NodeJS 14|`quay.io/discoversquishy/dockerimages:node-14-ubuntu`|Maintained|
 |NodeJS 16|`quay.io/discoversquishy/dockerimages:node-16-ubuntu`|Maintained|
-|NodeJS 18 Ubuntu|`quay.io/discoversquishy/dockerimages:node-18-ubuntu`|Maintained|
+|NodeJS 18|`quay.io/discoversquishy/dockerimages:node-18-ubuntu`|Maintained|
+|NodeJS 19|`quay.io/discoversquishy/dockerimages:node-19-ubuntu`|Maintained|
