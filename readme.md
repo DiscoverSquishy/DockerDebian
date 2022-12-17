@@ -37,7 +37,7 @@ I'll write more use cases as I go...
 |Java 16 Corretto|`quay.io/discoversquishy/dockerimages:java16-corretto`|Maintained|
 |Java 17 Corretto|`quay.io/discoversquishy/dockerimages:java17-corretto`|Maintained|
 |Java 18 Corretto|`quay.io/discoversquishy/dockerimages:java18-corretto`|Maintained|
-|Java 18 Corretto|`quay.io/discoversquishy/dockerimages:java19-corretto`|Maintained|
+|Java 19 Corretto|`quay.io/discoversquishy/dockerimages:java19-corretto`|Maintained|
 
 ### NodeJS Images
 
