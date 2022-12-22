@@ -37,9 +37,19 @@ I'll write more use cases as I go...
 |Java 16 Corretto|`quay.io/discoversquishy/dockerimages:java16-corretto`|Maintained|
 |Java 17 Corretto|`quay.io/discoversquishy/dockerimages:java17-corretto`|Maintained|
 |Java 18 Corretto|`quay.io/discoversquishy/dockerimages:java18-corretto`|Maintained|
-|Java 18 Corretto|`quay.io/discoversquishy/dockerimages:java19-corretto`|Maintained|
+|Java 19 Corretto|`quay.io/discoversquishy/dockerimages:java19-corretto`|Maintained|
 
-### NodeJS Images
+### NodeJS Alpine Images
+
+|Image|Image Pull Link|Maintenance Status|
+|--|--|--|
+|NodeJS 12|`quay.io/discoversquishy/dockerimages:node-12-alpine`|Maintained|
+|NodeJS 14|`quay.io/discoversquishy/dockerimages:node-14-alpine`|Maintained|
+|NodeJS 16|`quay.io/discoversquishy/dockerimages:node-16-alpine`|Maintained|
+|NodeJS 18|`quay.io/discoversquishy/dockerimages:node-18-alpine`|Maintained|
+|NodeJS 19|`quay.io/discoversquishy/dockerimages:node-19-alpine`|Maintained|
+
+### NodeJS Ubuntu Images
 
 |Image|Image Pull Link|Maintenance Status|
 |--|--|--|
