@@ -297,7 +297,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Push Node-14 Alpine
-        working-directory: ./nodejs/ubuntu/14/
+        working-directory: ./nodejs/alpine/14/
         run: |
           ${{ secrets.QUAY_LOGIN }}
           docker build . -t quay.io/discoversquishy/dockerimages:node-14-alpine --pull --no-cache
@@ -311,7 +311,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Push Node-16 Alpine
-        working-directory: ./nodejs/ubuntu/16/
+        working-directory: ./nodejs/alpine/16/
         run: |
           ${{ secrets.QUAY_LOGIN }}
           docker build . -t quay.io/discoversquishy/dockerimages:node-16-alpine --pull --no-cache
