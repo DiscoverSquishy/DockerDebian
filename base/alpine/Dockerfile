@@ -14,8 +14,7 @@ RUN adduser -D -h /home/container container && \
     "sqlite" \
     "fontconfig" \
     "iproute2" \
-    "python3" \
-    "tar"
+    "python3"
 
 # Pip Installation & Symlink Creation
 RUN python3 -m ensurepip --upgrade && \

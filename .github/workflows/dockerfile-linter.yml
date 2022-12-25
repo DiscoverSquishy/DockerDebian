@@ -84,6 +84,60 @@ jobs:
             dockerfile: ./nodejs/ubuntu/19/Dockerfile
             ignore: DL3018 DL3059 DL3008
             failure-threshold: error
+  NodeJS-Alpine-12-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+
+        - uses: hadolint/hadolint-action@v3.0.0
+          with:
+            dockerfile: ./nodejs/alpine/12/Dockerfile
+            ignore: DL3018 DL3059 DL3008
+            failure-threshold: error
+  NodeJS-Alpine-14-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+
+        - uses: hadolint/hadolint-action@v3.0.0
+          with:
+            dockerfile: ./nodejs/alpine/14/Dockerfile
+            ignore: DL3018 DL3059 DL3008
+            failure-threshold: error
+  NodeJS-Alpine-16-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+
+        - uses: hadolint/hadolint-action@v3.0.0
+          with:
+            dockerfile: ./nodejs/alpine/16/Dockerfile
+            ignore: DL3018 DL3059 DL3008
+            failure-threshold: error
+  NodeJS-Alpine-18-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+
+        - uses: hadolint/hadolint-action@v3.0.0
+          with:
+            dockerfile: ./nodejs/alpine/18/Dockerfile
+            ignore: DL3018 DL3059 DL3008
+  NodeJS-Alpine-19-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+
+        - uses: hadolint/hadolint-action@v3.0.0
+          with:
+            dockerfile: ./nodejs/alpine/19/Dockerfile
+            ignore: DL3018 DL3059 DL3008
+            failure-threshold: error
   Java-8-Temurin:
       runs-on: ubuntu-latest
       steps:
