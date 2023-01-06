@@ -3,6 +3,7 @@ FROM ubuntu:23.04
 LABEL os="Ubuntu" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 ENV PATH /usr/local/bin:$PATH
 ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHON_VERSION="3.11.1"
 
 # General Packages
 RUN apt-get update -y && \
@@ -15,13 +16,14 @@ RUN apt-get update -y && \
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 WORKDIR /~/
 RUN curl -LJO "https://github.com/python/cpython/archive/refs/tags/v3.11.1.tar.gz" && \
-    tar -xvzf cpython-3.11.1.tar.gz
-WORKDIR /~/cpython-3.11.1
+    tar -xvzf cpython-"${PYTHON_VERSION}"tar.gz
+WORKDIR /~/cpython-"${PYTHON_VERSION}"
 RUN ./configure --enable-optimizations && \
     make -s && \
     make altinstall && \
-    rm -rf ~/cpython-3.11.1*
+    rm -rf ~/cpython-"${PYTHON_VERSION}"*
 
+# Install Pip
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
 
 # Update all Python Packages
