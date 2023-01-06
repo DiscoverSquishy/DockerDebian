@@ -16,8 +16,9 @@ jobs:
         working-directory: ./base/alpine/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages:alpine-base --pull --no-cache
-          docker push quay.io/discoversquishy/dockerimages:alpine-base
+          docker buildx build --push \
+            --tag quay.io/discoversquishy/dockerimages:alpine-base --pull --no-cache \
+            --platform linux/amd64,linux/arm/v7,linux/arm64,linux/ppc64le .
           docker logout > /dev/null 2>&1
 
   # Ubuntu Base Building
@@ -30,8 +31,9 @@ jobs:
         working-directory: ./base/ubuntu/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages:ubuntu-base --pull --no-cache
-          docker push quay.io/discoversquishy/dockerimages:ubuntu-base
+          docker buildx build --push \
+            --tag quay.io/discoversquishy/dockerimages:ubuntu-base --pull --no-cache \
+            --platform linux/amd64,linux/arm/v7,linux/arm64,linux/ppc64le .
           docker logout > /dev/null 2>&1
 
   ## Eclipse Temurin Building
