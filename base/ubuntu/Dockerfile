@@ -15,8 +15,8 @@ RUN apt-get update -y && \
 # Python Installation
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 WORKDIR /~/
-RUN curl -LJO "https://github.com/python/cpython/archive/refs/tags/v3.11.1.tar.gz" && \
-    tar -xvzf cpython-"${PYTHON_VERSION}"tar.gz
+RUN curl -LJO "https://github.com/python/cpython/archive/refs/tags/v"${PYTHON_VERSION}".tar.gz" && \
+    tar -xvzf cpython-"${PYTHON_VERSION}".tar.gz
 WORKDIR /~/cpython-"${PYTHON_VERSION}"
 RUN ./configure --enable-optimizations && \
     make -s && \
