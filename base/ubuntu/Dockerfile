@@ -28,7 +28,7 @@ RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
 
 # Update all Python Packages
 RUN pip install pip-review && \
-   pip-review --auto
+    pip-review --auto
 
 # Remove Useless Packages
 RUN apt-get autoremove --allow-remove-essential --purge -y
