@@ -5,7 +5,7 @@ ENV PATH /usr/local/bin:$PATH
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHON_VERSION="3.11.1"
 
-# General Packages
+# General Packages Installation
 RUN apt-get update -y && \
     apt-get install --no-install-recommends -y curl wget ca-certificates openssl git tar sqlite fontconfig tzdata iproute2 gnupg xz-utils gdb lcov libbz2-dev libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev lzma lzma-dev tk-dev uuid-dev zlib1g-dev && \
     apt-get purge python3 -y && \
@@ -26,7 +26,7 @@ RUN ./configure --enable-optimizations && \
 # Install Pip
 RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
 
-# Update all Python Packages
+# Update Python Packages
 RUN pip install pip-review && \
     pip-review --auto
 

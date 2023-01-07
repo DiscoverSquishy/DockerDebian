@@ -18,6 +18,7 @@ jobs:
         working-directory: ./base/alpine/
         run: |
           ${{ secrets.QUAY_LOGIN }}
+          docker run --privileged --rm tonistiigi/binfmt --install all
           docker buildx build --push \
             --tag quay.io/discoversquishy/dockerimages:alpine-base --pull --no-cache \
             --platform linux/amd64,linux/arm/v7,linux/arm64,linux/ppc64le .
@@ -35,6 +36,7 @@ jobs:
         working-directory: ./base/ubuntu/
         run: |
           ${{ secrets.QUAY_LOGIN }}
+          docker run --privileged --rm tonistiigi/binfmt --install all
           docker buildx build --push \
             --tag quay.io/discoversquishy/dockerimages:ubuntu-base --pull --no-cache \
             --platform linux/amd64,linux/arm/v7,linux/arm64,linux/ppc64le .
