@@ -12,36 +12,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
       - name: Push Alpine Base
         working-directory: ./base/alpine/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker run --privileged --rm tonistiigi/binfmt --install all
-          docker buildx build --push \
-            --tag quay.io/discoversquishy/dockerimages:alpine-base --pull --no-cache \
-            --platform linux/amd64,linux/arm64 .
+          docker build . -t quay.io/discoversquishy/dockerimages:alpine-base --pull --no-cache
+          docker push quay.io/discoversquishy/dockerimages:alpine-base
           docker logout > /dev/null 2>&1
-
   # Ubuntu Base Building
   Ubuntu-Base:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-      - uses: jpribyl/action-docker-layer-caching@v0.1.1
-        continue-on-error: true
       - name: Push Ubuntu Base
         working-directory: ./base/ubuntu/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker run --privileged --rm tonistiigi/binfmt --install all
-          docker buildx build --push \
-            --tag quay.io/discoversquishy/dockerimages:ubuntu-base \
-            --platform linux/amd64,linux/arm64 .
+          docker build . -t quay.io/discoversquishy/dockerimages:ubuntu-base --pull --no-cache
+          docker push quay.io/discoversquishy/dockerimages:ubuntu-base
           docker logout > /dev/null 2>&1
 
   ## Eclipse Temurin Building
