@@ -1,7 +1,7 @@
 FROM quay.io/discoversquishy/dockerimages:ubuntu-base
 
 LABEL software="NodeJS" version="NJS-18" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
-ARG node_version=18.12.1
+ARG node_version=18.13.0
 
 WORKDIR /usr/local
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]

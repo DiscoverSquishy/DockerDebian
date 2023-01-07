@@ -14,11 +14,8 @@ RUN adduser -D -h /home/container container && \
     "sqlite" \
     "fontconfig" \
     "iproute2" \
-    "python3"
-
-# Pip Installation & Symlink Creation
-RUN python3 -m ensurepip --upgrade && \
-    ln -s /usr/bin/pip3 /usr/bin/pip
+    "python3" \
+    "py3-pip"
 
 # Package cleanup
 RUN rm -rf /var/cache/apk/*

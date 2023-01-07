@@ -4,29 +4,20 @@ LABEL os="Ubuntu" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 ENV PATH /usr/local/bin:$PATH
 ENV DEBIAN_FRONTEND=noninteractive
 
-# General Packages
+# General Packages & Python Installation
 RUN apt-get update -y && \
-    apt-get install --no-install-recommends -y curl wget ca-certificates openssl git tar sqlite fontconfig tzdata iproute2 gnupg xz-utils gdb lcov libbz2-dev libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev lzma lzma-dev tk-dev uuid-dev zlib1g-dev && \
-    apt-get purge python3 -y && \
+    apt-get install --no-install-recommends -y curl wget ca-certificates openssl git tar sqlite fontconfig tzdata iproute2 gnupg xz-utils python3 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Python Installation
+# Install Pip
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-WORKDIR /~/
-RUN curl -LJO "https://github.com/python/cpython/archive/refs/tags/v3.11.1.tar.gz" && \
-    tar -xvzf cpython-3.11.1.tar.gz
-WORKDIR /~/cpython-3.11.1
-RUN ./configure --enable-optimizations && \
-    make -s && \
-    make altinstall && \
-    rm -rf ~/cpython-3.11.1*
+RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3
 
-RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
+# Update Python Packages
+RUN pip install --no-cache-dir pip-review==1.3.0 && \
+    pip-review --auto
 
-# Remove Useless Packages
-RUN apt-get autoremove --allow-remove-essential --purge -y
-
-# Symlink Creation
-RUN ln -s /usr/local/bin/python3.11 /usr/local/bin/python && \
-    ln -s /usr/local/bin/python3.11 /usr/local/bin/python3
+# Remove Unused Packages & Symlink Creation
+RUN apt-get autoremove --allow-remove-essential --purge -y && \
+    ln -s /usr/bin/python3 /usr/bin/python
