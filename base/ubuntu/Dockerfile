@@ -4,7 +4,7 @@ LABEL os="Ubuntu" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 ENV PATH /usr/local/bin:$PATH
 ENV DEBIAN_FRONTEND=noninteractive
 
-# General Packages Installation
+# General Packages & Python Installation
 RUN apt-get update -y && \
     apt-get install --no-install-recommends -y curl wget ca-certificates openssl git tar sqlite fontconfig tzdata iproute2 gnupg xz-utils python3
 
