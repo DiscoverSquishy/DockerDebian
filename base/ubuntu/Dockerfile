@@ -30,7 +30,7 @@ RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11
 RUN pip install pip-review && \
     pip-review --auto
 
-# Remove Useless Packages
+# Remove Unused Packages
 RUN apt-get autoremove --allow-remove-essential --purge -y
 
 # Symlink Creation
