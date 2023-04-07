@@ -1,7 +1,7 @@
 FROM quay.io/discoversquishy/dockerimages:alpine-base
 
 LABEL software="NodeJS" version="NJS-14" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
-ARG node_version=14.21.2
+ARG node_version=14.21.3
 
 RUN curl -fLO https://unofficial-builds.nodejs.org/download/release/v${node_version}/node-v${node_version}-linux-x64-musl.tar.gz && \
   tar -xzf node-v${node_version}-linux-x64-musl.tar.gz -C /usr --strip-components=1 --no-same-owner && \
