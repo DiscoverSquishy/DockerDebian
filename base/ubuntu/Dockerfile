@@ -1,4 +1,4 @@
-FROM ubuntu:23.10
+FROM ubuntu:23.04
 
 LABEL os="Ubuntu" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 ENV PATH /usr/local/bin:$PATH
