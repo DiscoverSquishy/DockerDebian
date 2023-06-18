@@ -367,3 +367,17 @@ jobs:
           docker build . -t quay.io/discoversquishy/dockerimages:node-19-alpine --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages:node-19-alpine
           docker logout > /dev/null 2>&1
+
+  Node-20-Alpine:
+    runs-on: ubuntu-latest
+    needs: Alpine-Base
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Push Node-19 Alpine
+        working-directory: ./nodejs/alpine/20/
+        run: |
+          ${{ secrets.QUAY_LOGIN }}
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-20-alpine --pull --no-cache
+          docker push quay.io/discoversquishy/dockerimages-dev:node-20-alpine
+          docker logout > /dev/null 2>&1
