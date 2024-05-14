@@ -13,6 +13,7 @@ RUN apt-get update -y --no-install-recommends && \
         git \
         tar \
         sqlite3 \
+        xz-utils \
         fontconfig \
         tzdata \
         libfreetype6 \
