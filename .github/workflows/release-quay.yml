@@ -230,8 +230,8 @@ jobs:
         working-directory: ./nodejs/ubuntu/20/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-20-ubuntu --pull --no-cache
-          docker push quay.io/discoversquishy/dockerimages-dev:node-20-ubuntu
+          docker build . -t quay.io/discoversquishy/dockerimages:node-20-ubuntu --pull --no-cache
+          docker push quay.io/discoversquishy/dockerimages:node-20-ubuntu
           docker logout > /dev/null 2>&1
 
   Node-22-Ubuntu:
@@ -244,8 +244,8 @@ jobs:
         working-directory: ./nodejs/ubuntu/22/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-22-ubuntu --pull --no-cache
-          docker push quay.io/discoversquishy/dockerimages-dev:node-22-ubuntu
+          docker build . -t quay.io/discoversquishy/dockerimages:node-22-ubuntu --pull --no-cache
+          docker push quay.io/discoversquishy/dockerimages:node-22-ubuntu
           docker logout > /dev/null 2>&1
 
   ## Alpine NodeJS Building
@@ -274,8 +274,8 @@ jobs:
         working-directory: ./nodejs/alpine/20/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-20-alpine --pull --no-cache
-          docker push quay.io/discoversquishy/dockerimages-dev:node-20-alpine
+          docker build . -t quay.io/discoversquishy/dockerimages:node-20-alpine --pull --no-cache
+          docker push quay.io/discoversquishy/dockerimages:node-20-alpine
           docker logout > /dev/null 2>&1
 
   Node-22-Alpine:
@@ -288,6 +288,6 @@ jobs:
         working-directory: ./nodejs/alpine/22/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:node-22-alpine --pull --no-cache
-          docker push quay.io/discoversquishy/dockerimages-dev:node-22-alpine
+          docker build . -t quay.io/discoversquishy/dockerimages:node-22-alpine --pull --no-cache
+          docker push quay.io/discoversquishy/dockerimages:node-22-alpine
           docker logout > /dev/null 2>&1

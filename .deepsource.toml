@@ -1,16 +1,10 @@
 version = 1
 
 [[analyzers]]
-name = "test-coverage"
-enabled = true
-
-[[analyzers]]
 name = "shell"
-enabled = true
 
 [[analyzers]]
 name = "docker"
-enabled = true
 
   [analyzers.meta]
   dockerfile_paths = [
@@ -26,8 +20,10 @@ enabled = true
     "/java/17/corretto/Dockerfile",
     "/java/18/temurin/Dockerfile",
     "/java/18/corretto/Dockerfile",
-    "/nodejs/ubuntu/12/Dockerfile",
-    "/nodejs/ubuntu/14/Dockerfile",
-    "/nodejs/ubuntu/16/Dockerfile",
-    "/nodejs/ubuntu/18/Dockerfile"
+    "/nodejs/ubuntu/18/Dockerfile",
+    "/nodejs/alpine/18/Dockerfile",
+    "/nodejs/ubuntu/20/Dockerfile",
+    "/nodejs/alpine/20/Dockerfile",
+    "/nodejs/ubuntu/22/Dockerfile",
+    "/nodejs/alpine/22/Dockerfile"
   ]
