@@ -1,5 +1,10 @@
 #!/usr/bin/env sh
 
+# Script: API-Based Temurin Download
+# Author: DiscoverSquishy
+# Date: 2023-05-16
+# Description: Downloads the latest Temurin OpenJDK binaries based on the specified Java version and architecture.
+
 JAVA_VERSION="$1"
 ARCH="$(uname -m)"
 
