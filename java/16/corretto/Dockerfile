@@ -2,16 +2,31 @@ FROM quay.io/discoversquishy/dockerimages:ubuntu-base
 
 LABEL software="Java-Corretto" version="Java-16" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
+ENV CORRETTO_VERSION=16
+
 RUN apt-get update && apt-get install --no-install-recommends -y java-common && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN curl -LO https://corretto.aws/downloads/latest/amazon-corretto-16-x64-linux-jdk.deb && \
-    dpkg --install amazon-corretto-16-x64-linux-jdk.deb && \
-    rm amazon-corretto-16-x64-linux-jdk.deb
+RUN set -eux; \
+    ARCH=$(uname -m); \
+    case "${ARCH}" in \
+        x86_64) \
+            URL="https://corretto.aws/downloads/latest/amazon-corretto-$CORRETTO_VERSION-x64-linux-jdk.deb"; \
+            ;; \
+        aarch64) \
+            URL="https://corretto.aws/downloads/latest/amazon-corretto-$CORRETTO_VERSION-aarch64-linux-jdk.deb"; \
+            ;; \
+        *) \
+            echo "Unsupported architecture: ${ARCH}"; \
+            exit 1; \
+            ;; \
+    esac; \
+    curl -LO "${URL}"; \
+    dpkg --install "$(basename "${URL}")"; \
+    rm "$(basename "${URL}")"
 
-# Package cleanup
-RUN apt-get clean -y && rm -rf /var/cache/apk/*
+RUN java -version 2>&1 | grep -q "Corretto" || { echo "Error: Corretto not found in 'java -version' output"; exit 1; }
 
 USER container
 ENV USER=container HOME=/home/container
