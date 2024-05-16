@@ -1,34 +1,19 @@
-#!/bin/bash
-JAVA_VERSION=${1}
-ARCH=$(dpkg --print-architecture)
+#!/usr/bin/env sh
 
-output(){
-  echo -e '\e[95m'"$1"'\e[0m'
-}
+JAVA_VERSION="$1"
+ARCH="$(uname -m)"
 
-bad_output(){
-  echo -e '\e[91m'"$1"'\e[0m'
-}
+case "$ARCH" in
+aarch64|arm*|x86_64) ;;
+*) printf 'Unsupported Architecture...\n' >&2; exit 1 ;;
+esac
 
-api_response=$(curl -s "https://api.github.com/repos/adoptium/temurin$JAVA_VERSION-binaries/releases/latest")
+api_response=$(curl -sL "https://api.github.com/repos/adoptium/temurin${JAVA_VERSION}-binaries/releases/latest")
 
-declare -A ARCHITECTURES
-ARCHITECTURES=(
-  [aarch64]=$(echo "$api_response" | grep -wo 'https.*' | grep -m1 "OpenJDK""$JAVA_VERSION""U-jdk_aarch64_linux_hotspot" | sed 's/.$//')
-  [arm]=$(echo "$api_response" | grep -wo 'https.*' | grep -m1 "OpenJDK""$JAVA_VERSION""U-jdk_arm_linux_hotspot" | sed 's/.$//')
-  [ppc64el]=$(echo "$api_response" | grep -wo 'https.*' | grep -m1 "OpenJDK""$JAVA_VERSION""U-jdk_ppc64le_linux_hotspot" | sed 's/.$//')
-  [s390x]=$(echo "$api_response" | grep -wo 'https.*' | grep -m1 "OpenJDK""$JAVA_VERSION""U-jdk_s390x_linux_hotspot" | sed 's/.$//')
-  [amd64]=$(echo "$api_response" | grep -wo 'https.*' | grep -m1 "OpenJDK""$JAVA_VERSION""U-jdk_x64_linux_hotspot" | sed 's/.$//')
-)
+case "$ARCH" in
+aarch64) BINARY_URL=$(echo "$api_response" | grep -o 'https://[^"]*' | grep -m1 "OpenJDK${JAVA_VERSION}U-jdk_aarch64_linux_hotspot") ;;
+arm*) BINARY_URL=$(echo "$api_response" | grep -o 'https://[^"]*' | grep -m1 "OpenJDK${JAVA_VERSION}U-jdk_arm_linux_hotspot") ;;
+x86_64) BINARY_URL=$(echo "$api_response" | grep -o 'https://[^"]*' | grep -m1 "OpenJDK${JAVA_VERSION}U-jdk_x64_linux_hotspot") ;;
+esac
 
-BINARY_URL=${ARCHITECTURES[$ARCH]}
-if [ -z "$BINARY_URL" ]; then
-  bad_output "Unsupported Architecture..."
-  exit 1
-else
-  output "$ARCH detected...\n"
-fi
-
-curl -LfsSo /tmp/openjdk.tar.gz "$BINARY_URL"
-output "Eclipse-Temurin $JAVA_VERSION downloaded!\n"
-output "Thanks for using me!"
+curl -fsSL -o /tmp/openjdk.tar.gz "$BINARY_URL"

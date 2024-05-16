@@ -6,7 +6,8 @@ ENV JAVA_VERSION="8"
 
 WORKDIR /opt/java/openjdk
 RUN curl -L -o "temurin-download.sh" "https://i.discoversquishy.me/temurin-download.sh" && \
-    bash temurin-download.sh "${JAVA_VERSION}" && \
+    chmod +x  temurin-download.sh && \
+    ./temurin-download.sh "${JAVA_VERSION}" && \
     rm temurin-download.sh
 
 RUN tar -xf /tmp/openjdk.tar.gz --strip-components=1; \
