@@ -45,6 +45,7 @@ I'll write more use cases as I go...
 |--|--|--|
 |NodeJS 18|`quay.io/discoversquishy/dockerimages:node-18-alpine`|Maintained|
 |NodeJS 20|`quay.io/discoversquishy/dockerimages:node-20-alpine`|Maintained|
+|NodeJS 22|`quay.io/discoversquishy/dockerimages:node-22-alpine`|Maintained|
 
 ### NodeJS Ubuntu Images
 
@@ -52,3 +53,4 @@ I'll write more use cases as I go...
 |--|--|--|
 |NodeJS 18|`quay.io/discoversquishy/dockerimages:node-18-ubuntu`|Maintained|
 |NodeJS 20|`quay.io/discoversquishy/dockerimages:node-20-ubuntu`|Maintained|
+|NodeJS 22|`quay.io/discoversquishy/dockerimages:node-20-ubuntu`|Maintained|
