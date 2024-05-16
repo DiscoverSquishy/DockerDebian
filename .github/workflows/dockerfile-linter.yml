@@ -70,6 +70,26 @@ jobs:
           with:
             dockerfile: ./nodejs/alpine/20/Dockerfile
             ignore: DL3018 DL3059 DL3008
+  NodeJS-Ubuntu-22-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+
+        - uses: hadolint/hadolint-action@v3.1.0
+          with:
+            dockerfile: ./nodejs/ubuntu/22/Dockerfile
+            ignore: DL3018 DL3059 DL3008
+  NodeJS-Alpine-22-Lint:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+
+        - uses: hadolint/hadolint-action@v3.1.0
+          with:
+            dockerfile: ./nodejs/alpine/22/Dockerfile
+            ignore: DL3018 DL3059 DL3008
   Java-8-Temurin:
       runs-on: ubuntu-latest
       steps:
