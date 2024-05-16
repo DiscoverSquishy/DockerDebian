@@ -10,6 +10,7 @@ on:
       - nodejs/**
       - java/**
       - apps/**
+      - .github/workflows/dev-quay.yml
 
 jobs:
   # Alpine Base Building
@@ -18,25 +19,35 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Push Alpine Base
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build and Push Alpine Base
         working-directory: ./base/alpine/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build --push \
+          docker buildx build --push \
+            --platform linux/amd64,linux/arm64 \
             --tag quay.io/discoversquishy/dockerimages-dev:alpine-base-dev --pull --no-cache .
           docker logout > /dev/null 2>&1
+
   # Ubuntu Base Building
   Ubuntu-Base:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Push Ubuntu Base
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build and Push Ubuntu Base
         working-directory: ./base/ubuntu/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker run --privileged --rm tonistiigi/binfmt --install all
-          docker build --push \
+          docker buildx build --push \
+            --platform linux/amd64,linux/arm64 \
             --tag quay.io/discoversquishy/dockerimages-dev:ubuntu-base-dev --pull --no-cache .
           docker logout > /dev/null 2>&1
 
