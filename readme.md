@@ -43,18 +43,12 @@ I'll write more use cases as I go...
 
 |Image|Image Pull Link|Maintenance Status|
 |--|--|--|
-|NodeJS 12|`quay.io/discoversquishy/dockerimages:node-12-alpine`|Maintained|
-|NodeJS 14|`quay.io/discoversquishy/dockerimages:node-14-alpine`|Maintained|
-|NodeJS 16|`quay.io/discoversquishy/dockerimages:node-16-alpine`|Maintained|
 |NodeJS 18|`quay.io/discoversquishy/dockerimages:node-18-alpine`|Maintained|
-|NodeJS 19|`quay.io/discoversquishy/dockerimages:node-19-alpine`|Maintained|
+|NodeJS 20|`quay.io/discoversquishy/dockerimages:node-20-alpine`|Maintained|
 
 ### NodeJS Ubuntu Images
 
 |Image|Image Pull Link|Maintenance Status|
 |--|--|--|
-|NodeJS 12|`quay.io/discoversquishy/dockerimages:node-12-ubuntu`|Maintained|
-|NodeJS 14|`quay.io/discoversquishy/dockerimages:node-14-ubuntu`|Maintained|
-|NodeJS 16|`quay.io/discoversquishy/dockerimages:node-16-ubuntu`|Maintained|
 |NodeJS 18|`quay.io/discoversquishy/dockerimages:node-18-ubuntu`|Maintained|
-|NodeJS 19|`quay.io/discoversquishy/dockerimages:node-19-ubuntu`|Maintained|
+|NodeJS 20|`quay.io/discoversquishy/dockerimages:node-20-ubuntu`|Maintained|
