@@ -263,7 +263,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Push Node-19 Alpine
+      - name: Push Node-20 Alpine
         working-directory: ./nodejs/alpine/20/
         run: |
           ${{ secrets.QUAY_LOGIN }}
