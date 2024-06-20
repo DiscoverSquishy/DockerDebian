@@ -26,6 +26,8 @@ RUN set -eux; \
     dpkg --install "$(basename "${URL}")"; \
     rm "$(basename "${URL}")"
 
+# Set the SHELL option -o pipefail
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN java -version 2>&1 | grep -q "Corretto" || { echo "Error: Corretto not found in 'java -version' output"; exit 1; }
 
 USER container
