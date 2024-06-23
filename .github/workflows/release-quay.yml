@@ -171,7 +171,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Push Java 16 Corretto
-        working-directory: ./java/ubuntu/17/corretto/
+        working-directory: ./java/ubuntu/16/corretto/
         run: |
           ${{ secrets.QUAY_LOGIN }}
           docker build . -t quay.io/discoversquishy/dockerimages:ubuntu-java-16-corretto --pull --no-cache
@@ -328,7 +328,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Push Java 16 Corretto
-        working-directory: ./java/alpine/17/corretto/
+        working-directory: ./java/alpine/16/corretto/
         run: |
           ${{ secrets.QUAY_LOGIN }}
           docker build . -t quay.io/discoversquishy/dockerimages:alpine-java-16-corretto --pull --no-cache
