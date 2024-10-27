@@ -2,7 +2,7 @@ FROM quay.io/discoversquishy/dockerimages:alpine-base
 
 LABEL software="Alpine-Temurin" version="Java-8" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 
-ENV JAVA_VERSION="8"
+ENV JAVA_VERSION="11"
 
 WORKDIR /opt/java/openjdk
 

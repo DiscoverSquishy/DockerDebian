@@ -78,20 +78,6 @@ jobs:
           docker push quay.io/discoversquishy/dockerimages:ubuntu-java-11-temurin
           docker logout > /dev/null 2>&1
 
-  Ubuntu-Java-16-Temurin:
-    runs-on: ubuntu-latest
-    needs: Ubuntu-Base
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Push Java 16 Temurin
-        working-directory: ./java/ubuntu/16/temurin/
-        run: |
-          ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages:ubuntu-java-16-temurin --pull --no-cache
-          docker push quay.io/discoversquishy/dockerimages:ubuntu-java-16-temurin
-          docker logout > /dev/null 2>&1
-
   Ubuntu-Java-17-Temurin:
     runs-on: ubuntu-latest
     needs: Ubuntu-Base
@@ -104,20 +90,6 @@ jobs:
           ${{ secrets.QUAY_LOGIN }}
           docker build . -t quay.io/discoversquishy/dockerimages:ubuntu-java-17-temurin --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages:ubuntu-java-17-temurin
-          docker logout > /dev/null 2>&1
-
-  Ubuntu-Java-18-Temurin:
-    runs-on: ubuntu-latest
-    needs: Ubuntu-Base
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Push Java 18 Temurin
-        working-directory: ./java/ubuntu/18/temurin/
-        run: |
-          ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages:ubuntu-java-18-temurin --pull --no-cache
-          docker push quay.io/discoversquishy/dockerimages:ubuntu-java-18-temurin
           docker logout > /dev/null 2>&1
 
   Ubuntu-Java-19-Temurin:
@@ -164,20 +136,6 @@ jobs:
           docker push quay.io/discoversquishy/dockerimages:ubuntu-java-11-corretto
           docker logout > /dev/null 2>&1
 
-  Ubuntu-Java-16-Corretto:
-    runs-on: ubuntu-latest
-    needs: Ubuntu-Base
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Push Java 16 Corretto
-        working-directory: ./java/ubuntu/16/corretto/
-        run: |
-          ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages:ubuntu-java-16-corretto --pull --no-cache
-          docker push quay.io/discoversquishy/dockerimages:ubuntu-java-16-corretto
-          docker logout > /dev/null 2>&1
-
   Ubuntu-Java-17-Corretto:
     runs-on: ubuntu-latest
     needs: Ubuntu-Base
@@ -190,20 +148,6 @@ jobs:
           ${{ secrets.QUAY_LOGIN }}
           docker build . -t quay.io/discoversquishy/dockerimages:ubuntu-java-17-corretto --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages:ubuntu-java-17-corretto
-          docker logout > /dev/null 2>&1
-
-  Ubuntu-Java-18-Corretto:
-    runs-on: ubuntu-latest
-    needs: Ubuntu-Base
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Push Java 18 Corretto
-        working-directory: ./java/ubuntu/18/corretto/
-        run: |
-          ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages:ubuntu-java-18-corretto --pull --no-cache
-          docker push quay.io/discoversquishy/dockerimages:ubuntu-java-18-corretto
           docker logout > /dev/null 2>&1
 
   Ubuntu-Java-19-Corretto:
@@ -249,20 +193,6 @@ jobs:
           docker push quay.io/discoversquishy/dockerimages:alpine-java-11-temurin
           docker logout > /dev/null 2>&1
 
-  Alpine-Java-16-Temurin:
-    runs-on: ubuntu-latest
-    needs: Alpine-Base
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Push Java 16 Temurin
-        working-directory: ./java/alpine/16/temurin/
-        run: |
-          ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages:alpine-java-16-temurin --pull --no-cache
-          docker push quay.io/discoversquishy/dockerimages:alpine-java-16-temurin
-          docker logout > /dev/null 2>&1
-
   Alpine-Java-17-Temurin:
     runs-on: ubuntu-latest
     needs: Alpine-Base
@@ -275,20 +205,6 @@ jobs:
           ${{ secrets.QUAY_LOGIN }}
           docker build . -t quay.io/discoversquishy/dockerimages:alpine-java-17-temurin --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages:alpine-java-17-temurin
-          docker logout > /dev/null 2>&1
-
-  Alpine-Java-18-Temurin:
-    runs-on: ubuntu-latest
-    needs: Alpine-Base
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Push Java 18 Temurin
-        working-directory: ./java/alpine/18/temurin/
-        run: |
-          ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages:alpine-java-18-temurin --pull --no-cache
-          docker push quay.io/discoversquishy/dockerimages:alpine-java-18-temurin
           docker logout > /dev/null 2>&1
 
   Alpine-Java-19-Temurin:
@@ -321,20 +237,6 @@ jobs:
           docker push quay.io/discoversquishy/dockerimages:alpine-java-11-corretto
           docker logout > /dev/null 2>&1
 
-  Alpine-Java-16-Corretto:
-    runs-on: ubuntu-latest
-    needs: Alpine-Base
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Push Java 16 Corretto
-        working-directory: ./java/alpine/16/corretto/
-        run: |
-          ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages:alpine-java-16-corretto --pull --no-cache
-          docker push quay.io/discoversquishy/dockerimages:alpine-java-16-corretto
-          docker logout > /dev/null 2>&1
-
   Alpine-Java-17-Corretto:
     runs-on: ubuntu-latest
     needs: Alpine-Base
@@ -347,20 +249,6 @@ jobs:
           ${{ secrets.QUAY_LOGIN }}
           docker build . -t quay.io/discoversquishy/dockerimages:alpine-java-17-corretto --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages:alpine-java-17-corretto
-          docker logout > /dev/null 2>&1
-
-  Alpine-Java-18-Corretto:
-    runs-on: ubuntu-latest
-    needs: Alpine-Base
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Push Java 18 Corretto
-        working-directory: ./java/alpine/18/corretto/
-        run: |
-          ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages:alpine-java-18-corretto --pull --no-cache
-          docker push quay.io/discoversquishy/dockerimages:alpine-java-18-corretto
           docker logout > /dev/null 2>&1
 
   Alpine-Java-19-Corretto:
@@ -421,6 +309,34 @@ jobs:
           docker push quay.io/discoversquishy/dockerimages:ubuntu-node-22
           docker logout > /dev/null 2>&1
 
+  Ubuntu-Node-22:
+    runs-on: ubuntu-latest
+    needs: Ubuntu-Base
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Push Node 22 Ubuntu
+        working-directory: ./nodejs/ubuntu/22/
+        run: |
+          ${{ secrets.QUAY_LOGIN }}
+          docker build . -t quay.io/discoversquishy/dockerimages:ubuntu-node-22 --pull --no-cache
+          docker push quay.io/discoversquishy/dockerimages:ubuntu-node-22
+          docker logout > /dev/null 2>&1
+
+  Ubuntu-Node-23:
+    runs-on: ubuntu-latest
+    needs: Ubuntu-Base
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Push Node 23 Ubuntu
+        working-directory: ./nodejs/ubuntu/23/
+        run: |
+          ${{ secrets.QUAY_LOGIN }}
+          docker build . -t quay.io/discoversquishy/dockerimages:ubuntu-node-23 --pull --no-cache
+          docker push quay.io/discoversquishy/dockerimages:ubuntu-node-23
+          docker logout > /dev/null 2>&1
+
   ## Alpine NodeJS Building
 
   Alpine-Node-18:
@@ -463,4 +379,18 @@ jobs:
           ${{ secrets.QUAY_LOGIN }}
           docker build . -t quay.io/discoversquishy/dockerimages:alpine-node-22 --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages:alpine-node-22
+          docker logout > /dev/null 2>&1
+
+  Alpine-Node-23:
+    runs-on: ubuntu-latest
+    needs: Alpine-Base
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Push Node 23 Alpine
+        working-directory: ./nodejs/alpine/23/
+        run: |
+          ${{ secrets.QUAY_LOGIN }}
+          docker build . -t quay.io/discoversquishy/dockerimages:alpine-node-23 --pull --no-cache
+          docker push quay.io/discoversquishy/dockerimages:alpine-node-23
           docker logout > /dev/null 2>&1
