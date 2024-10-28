@@ -322,10 +322,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Push Node 23 Ubuntu
-        working-directory: ./nodejs/ubuntu/22/
+        working-directory: ./nodejs/ubuntu/23/
         run: |
           ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages-dev:ubuntu-node-32-dev --pull --no-cache
+          docker build . -t quay.io/discoversquishy/dockerimages-dev:ubuntu-node-23-dev --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages-dev:ubuntu-node-23-dev
           docker logout > /dev/null 2>&1
 
