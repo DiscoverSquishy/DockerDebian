@@ -25,8 +25,8 @@ jobs:
           ${{ secrets.QUAY_LOGIN }}
           docker buildx build --push \
             --platform linux/amd64,linux/arm64 \
-            --tag quay.io/discoversquishy/dockerimages:alpine-base --pull --no-cache .
-          docker logout > /dev/null 2>&1
+            --tag quay.io/discoversquishy/dockerimages-dev:alpine-base \
+            --pull --no-cache --provenance=false .
 
   # Ubuntu Base Building
   Ubuntu-Base:
@@ -46,8 +46,8 @@ jobs:
           ${{ secrets.QUAY_LOGIN }}
           docker buildx build --push \
             --platform linux/amd64,linux/arm64 \
-            --tag quay.io/discoversquishy/dockerimages:ubuntu-base --pull --no-cache .
-          docker logout > /dev/null 2>&1
+            --tag quay.io/discoversquishy/dockerimages-dev:ubuntu-base \
+            --pull --no-cache --provenance=false .
 
   ## Ubuntu Eclipse Temurin Building
   Ubuntu-Java-8-Temurin:
@@ -293,20 +293,6 @@ jobs:
           ${{ secrets.QUAY_LOGIN }}
           docker build . -t quay.io/discoversquishy/dockerimages:ubuntu-node-20 --pull --no-cache
           docker push quay.io/discoversquishy/dockerimages:ubuntu-node-20
-          docker logout > /dev/null 2>&1
-
-  Ubuntu-Node-22:
-    runs-on: ubuntu-latest
-    needs: Ubuntu-Base
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Push Node 22 Ubuntu
-        working-directory: ./nodejs/ubuntu/22/
-        run: |
-          ${{ secrets.QUAY_LOGIN }}
-          docker build . -t quay.io/discoversquishy/dockerimages:ubuntu-node-22 --pull --no-cache
-          docker push quay.io/discoversquishy/dockerimages:ubuntu-node-22
           docker logout > /dev/null 2>&1
 
   Ubuntu-Node-22:

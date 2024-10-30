@@ -1,21 +1,22 @@
-FROM alpine:3.20
+FROM alpine:3.20.3
 
 LABEL os="Alpine" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
-RUN adduser -D -h /home/container container && \
-    apk --no-cache add \
+RUN apk --no-cache add \
         ca-certificates \
         curl \
-        openssl \
         git \
-        tar \
         jq \
+        wget \
         tzdata \
-        sqlite \
-        fontconfig \
-        iproute2 \
-        freetype \
-        python3 \
-    && rm -rf /var/cache/apk/*
+        gettext \
+        openssl
 
-# Package cleanup
-RUN rm -rf /var/cache/apk/*
+RUN addgroup -g 1000 container && \
+    adduser -D -h /home/container -u 1000 -G container container
+
+USER container
+ENV USER=container HOME=/home/container
+WORKDIR /home/container
+
+COPY ./entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/bin/ash", "/entrypoint.sh"]

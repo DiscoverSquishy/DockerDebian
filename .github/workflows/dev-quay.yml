@@ -31,8 +31,8 @@ jobs:
           ${{ secrets.QUAY_LOGIN }}
           docker buildx build --push \
             --platform linux/amd64,linux/arm64 \
-            --tag quay.io/discoversquishy/dockerimages-dev:alpine-base-dev --pull --no-cache .
-          docker logout > /dev/null 2>&1
+            --tag quay.io/discoversquishy/dockerimages-dev:alpine-base-dev \
+            --pull --no-cache --provenance=false .
 
   # Ubuntu Base Building
   Ubuntu-Base:
@@ -52,8 +52,8 @@ jobs:
           ${{ secrets.QUAY_LOGIN }}
           docker buildx build --push \
             --platform linux/amd64,linux/arm64 \
-            --tag quay.io/discoversquishy/dockerimages-dev:ubuntu-base-dev --pull --no-cache .
-          docker logout > /dev/null 2>&1
+            --tag quay.io/discoversquishy/dockerimages-dev:ubuntu-base-dev \
+            --pull --no-cache --provenance=false .
 
   ## Ubuntu Eclipse Temurin Building
   Ubuntu-Java-8-Temurin:
