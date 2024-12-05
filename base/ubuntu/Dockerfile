@@ -1,26 +1,37 @@
-FROM ubuntu:24.04
+FROM ubuntu:24.10
 
 LABEL os="Ubuntu" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
-ENV PATH /usr/local/bin:$PATH
-ENV DEBIAN_FRONTEND=noninteractive
+ENV PATH="/usr/local/bin:$PATH"
+ENV DEBIAN_FRONTEND="noninteractive"
 
 # Install General Packages
-RUN apt-get update -y --no-install-recommends && \
+RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
-        curl \
         ca-certificates \
-        openssl \
-        git \
+        curl \
         tar \
+        git \
+        openssl \
         sqlite3 \
-        xz-utils \
         fontconfig \
-        tzdata \
-        libfreetype6 \
         iproute2 \
-        libstdc++6 && \
+        xz-utils \
+        libgcc-s1 \
+        libstdc++6 \
+        libc6 \
+        zlib1g \
+        libssl3 \
+        tzdata && \
     apt-get clean && \
+    apt-get autoremove --allow-remove-essential --purge -y && \
     rm -rf /var/lib/apt/lists/*
 
-# Remove Unused Packages
-RUN apt-get autoremove --allow-remove-essential --purge -y
+# Create a non-root user
+RUN useradd -m -d /home/container -s /bin/bash container
+USER container
+ENV USER=container HOME=/home/container
+
+WORKDIR /home/container
+
+COPY ./entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
