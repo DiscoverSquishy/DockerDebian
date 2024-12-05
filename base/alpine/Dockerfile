@@ -1,4 +1,4 @@
-FROM alpine:3.20.3
+FROM alpine:3.21.0
 
 LABEL os="Alpine" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 RUN apk --no-cache add \
