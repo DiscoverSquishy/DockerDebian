@@ -1,4 +1,4 @@
-FROM alpine:3.20
+FROM alpine:3.21.2
 
 LABEL os="Alpine" author="DiscoverSquishy" maintainer="noaimi2214@gmail.com"
 RUN adduser -D -h /home/container container && \
